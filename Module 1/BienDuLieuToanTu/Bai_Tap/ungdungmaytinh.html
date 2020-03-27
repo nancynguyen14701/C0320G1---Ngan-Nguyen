@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1> Calculator </h1>
+<input type="text" id="number1">
+<input type="text" id="number2"> </br>
+<button onclick="Add()"> Addition(+) </button>
+<button onclick="Subtract()"> Subtraction(-) </button>
+<button onclick="Multiple()"> Multiplication(x) </button>
+<button onclick="Devide()"> Devision(/) </button></br>
+<input id="result">
+
+<script>
+    function Add() {
+        let a = parseFloat(document.getElementById("number1").value);
+        let b = parseFloat(document.getElementById("number2").value);
+        let result= a+b;
+        document.getElementById("result").value=result
+            }
+    function Subtract() {
+        let a = parseFloat(document.getElementById("number1").value);
+        let b = parseFloat(document.getElementById("number2").value);
+        let result = a-b;
+        document.getElementById("result").value=result
+    }
+    function Multiple() {
+        let a = parseFloat(document.getElementById("number1").value);
+        let b = parseFloat(document.getElementById("number2").value);
+        let result = a*b;
+        document.getElementById("result").value=result
+    }
+    function Devide() {
+        let a = parseFloat(document.getElementById("number1").value);
+        let b = parseFloat(document.getElementById("number2").value);
+        let result = a/b;
+        document.getElementById("result").value=result
+    }
+</script>
+
+</body>
+</html>

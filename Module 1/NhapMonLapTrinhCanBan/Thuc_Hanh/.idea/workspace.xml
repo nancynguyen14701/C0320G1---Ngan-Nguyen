@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c8a4fbec-37d2-4d15-8b1e-2a9724459bb8" name="Default Changelist" comment="" />
+    <list default="true" id="c8a4fbec-37d2-4d15-8b1e-2a9724459bb8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flowchartb1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flowchartb2.png" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,11 +44,22 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1584954549425</updated>
-      <workItem from="1584954555696" duration="3051000" />
+      <workItem from="1584954555696" duration="4002000" />
+      <workItem from="1585104465211" duration="235000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="137" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585104593680">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="137" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1585104593680" />
+    <state x="462" y="110" key="FileChooserDialogImpl" timestamp="1585104691862">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="462" y="110" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1585104691862" />
   </component>
 </project>
