@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a= parseFloat(prompt('Số kWh điện đã dùng: '));
+    expense= 0;
+    if (a<=50){
+        expense= 1600*a;
+        console.log('Tiền điện tháng này là: '+expense+'VNĐ');
+    }
+    if(a>50&&a<=100){
+        expense=1600*a + (a-50)*1700;
+        console.log('Tiền điện tháng này là: '+expense+'VNĐ');
+    }
+    if (a>100&&a<=200){
+        expense=1600*a + (a-50)*1700+ (a-100)*2000;
+        console.log('Tiền điện tháng này là: '+expense+'VNĐ');
+    }
+    if (a>200&&a<=300) {
+        expense = 1600 * a + (a - 50) * 1700 + (a - 100) * 2000 + (a - 200) * 2500;
+        console.log('Tiền điện tháng này là: ' + expense + 'VNĐ');
+    }
+    if (a>300&&a<=400) {
+        expense = 1600 * a + (a - 50) * 1700 + (a - 100) * 2000 + (a - 200) * 2500 + (a - 300) * 2900;
+        console.log('Tiền điện tháng này là: ' + expense + 'VNĐ');
+
+    }
+    if (a>400) {
+        expense = 1600 * a + (a - 50) * 1700 + (a - 100) * 2000 + (a - 200) * 2500 + (a - 300) * 2900 + (a-400)*3000;
+        console.log('Tiền điện tháng này là: ' + a + 'VNĐ');
+
+    }
+</script>
+
+</body>
+</html>

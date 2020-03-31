@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a= parseInt(prompt('Thu nhập hằng tháng của bạn là(triệu): '));
+    let thue=0;
+    if(a<=5){
+        thue= (5/100)*a;
+        console.log('Tiền thuế phải đóng: '+thue +'triệu');
+    }
+    if(a>5&&a<=10){
+        thue= 0.25 + (10/100)*(a-5);
+        console.log('Tiền thuế phải đóng: '+thue+'triệu');
+    }
+    if(a>10&&a<=18){
+        thue= 0.75 + (15/100)*(a-10);
+        console.log('Tiền thuế phải đóng: '+thue+ 'triệu');
+    }
+    if(a>18&&a<=32){
+        thue= 1.95 + (20/100)*(a-18);
+        console.log('Tiền thuế phải đóng: '+thue+ 'triệu');
+    }
+    if(a>32&&a<=52){
+        thue= 4.75 + (25/100)*(a-32);
+        console.log('Tiền thuế phải đóng: '+thue+ 'triệu');
+    }
+    if(a>52&&a<=80){
+        thue= 9.75 + (30/100)*(a-52);
+        console.log('Tiền thuế phải đóng: '+thue+ 'triệu');
+    }
+    if(a>80){
+        thue= 18.15 + (35/100)*(a-80);
+        console.log('Tiền thuế phải đóng: '+thue+ 'triệu');
+    }
+
+
+
+</script>
+
+</body>
+</html>

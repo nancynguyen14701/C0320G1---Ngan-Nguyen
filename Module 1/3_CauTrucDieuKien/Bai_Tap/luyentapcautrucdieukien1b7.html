@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = parseInt(prompt('So phut goi dien: '));
+    expense= 25000;
+    if (a<=50){
+        expense += 600*a;
+        document.write ('Cước điện thoại bàn là: '+ expense + 'VND');
+    }
+    if (a>50&&a<=200) {
+        expense += 600*a + 400*(a-50);
+        document.write ('Cước điện thoại bàn là: '+ expense + 'VND');
+    }
+    if (a>200){
+        expense += 600*a + 400*(a-50) + 200*(a-200);
+        document.write ('Cước điện thoại bàn là: '+ expense + 'VND');
+    }
+</script>
+
+</body>
+</html>

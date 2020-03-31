@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = parseInt(prompt('Nhập điểm bài kiểm tra:'));
+    let b = parseInt(prompt('Nhập điểm bài kiểm tra giữa kỳ:'));
+    let c= parseInt(prompt('Nhập điểm bài kiểm tra cuối kỳ: '));
+    let d= (a+b*2+c*3)/5;
+    switch (true) {
+        case (d>=8):
+            alert('Gioi');
+            break;
+        case (d>=6.5 && d<8):
+            alert('Kha');
+            break;
+        case (d<6.5):
+            alert ('Yeu');
+            break;
+        }
+</script>
+
+</body>
+</html>
