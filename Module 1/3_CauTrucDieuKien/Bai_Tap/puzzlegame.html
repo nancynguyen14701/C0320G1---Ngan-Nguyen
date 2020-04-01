@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p1><img onclick="check('1')" src="tho1.PNG" id="tho1" style="position:relative" height="150" width="450" border = 2/></p1></br>
+<p2><img onclick="check('2')" src="gau2.PNG" id="gau2" style="position:relative" height="150" width="450" border = 2/></p2></br>
+<p3><img onclick="check('3')" src="meo3.PNG" id="meo3" style="position:relative" height="150" width="450" border = 2/></p3>
+
+<script> function check(a) {
+    var img = document.getElementById('tho1');
+    var img2 = document.getElementById('gau2');
+    var img3 = document.getElementById('meo3');
+    img.style.borderColor = "white";
+    img2.style.borderColor = "white";
+    img3.style.borderColor = "white";
+    if( a=='1') {
+
+        if (img.getAttribute('src') === "tho1.PNG") {
+            img.src = "gau1.PNG";
+        } else if (img.getAttribute('src') === "gau1.PNG") {
+            img.src = "meo1.PNG";
+        } else {
+            img.src = "tho1.PNG";
+        }
+    }
+    if (a=='2'){
+
+        if (img2.getAttribute('src') === "gau2.PNG") {
+            img2.src = "tho2.PNG";
+        } else if (img2.getAttribute('src')=== "tho2.PNG"){
+            img2.src = "meo2.PNG";
+        } else {
+            img2.src = "gau2.PNG";
+        }
+    }
+    if (a=='3'){
+
+        if (img3.getAttribute('src')=== "meo3.PNG"){
+            img3.src= "gau3.PNG";
+        } else if (img3.getAttribute('src')==="gau3.PNG"){
+            img3.src= "tho3.PNG";
+        } else {
+            img3.src="meo3.PNG";
+        }
+    }
+
+    if ( img.getAttribute('src')==="tho1.PNG"&& img2.getAttribute('src')==="tho2.PNG" && img3.getAttribute('src')==="tho3.PNG"){
+        img.style.borderColor = "red";
+        img2.style.borderColor = "red";
+        img3.style.borderColor = "red";
+    }
+    if (img.getAttribute('src')==="gau1.PNG"&& img2.getAttribute('src')==="gau2.PNG" && img3.getAttribute('src')==="gau3.PNG"){
+        img.style.borderColor = "red";
+        img2.style.borderColor = "red";
+        img3.style.borderColor = "red";
+    }
+    if (img.getAttribute('src')==="meo1.PNG"&& img2.getAttribute('src')==="meo2.PNG" && img3.getAttribute('src')==="meo3.PNG"){
+        img.style.borderColor = "red";
+        img2.style.borderColor = "red";
+        img3.style.borderColor = "red";
+    }
+}
+
+</script>
+
+
+</body>
+</html>

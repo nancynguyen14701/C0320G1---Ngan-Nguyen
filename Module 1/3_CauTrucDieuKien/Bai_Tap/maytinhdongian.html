@@ -7,37 +7,51 @@
 <body>
 <table>
     <tr>
-        <td colspan="4" id="input">1</td>
+        <td colspan="4"><input type="text" id="result"></td>
     </tr>
     <tr>
-        <td><button onclick="abc">7</button></td>
-        <td><button onclick="abc">8</button></td>
-        <td><button onclick="abc">9</button></td>
-        <td><button onclick="abc">x</button></td>
+        <td><button onclick="nhap('7')">7</button></td>
+        <td><button onclick="nhap('8')">8</button></td>
+        <td><button onclick="nhap('9')">9</button></td>
+        <td><button onclick="nhap('*')">x</button></td>
     </tr>
     <tr>
-        <td><button onclick="abc">4</button></td>
-        <td><button onclick="abc">5</button></td>
-        <td><button onclick="abc">6</button></td>
-        <td><button onclick="abc">-</button></td>
+        <td><button onclick="nhap('4')">4</button></td>
+        <td><button onclick="nhap('5')">5</button></td>
+        <td><button onclick="nhap('6') ">6</button></td>
+        <td><button onclick="nhap('-')">-</button></td>
     </tr>
     <tr>
-        <td><button onclick="abc">1</button></td>
-        <td><button onclick="abc">2</button></td>
-        <td><button onclick="abc">3</button></td>
-        <td><button oncl)ick="abc">+</button></td>
+        <td><button onclick="nhap('1')">1</button></td>
+        <td><button onclick="nhap('2')">2</button></td>
+        <td><button onclick="nhap('3')">3</button></td>
+        <td><button onclick="nhap('+')">+</button></td>
     </tr>
     <tr>
-        <td><button onclick="abc">C</button></td>
-        <td><button onclick="abc">0</button></td>
-        <td><button onclick="abc">=</button></td>
-        <td><button onclick="abc">/</button></td>
+        <td><button onclick="xoagiatri()">C</button></td>
+        <td><button onclick="nhap('0')">0</button></td>
+        <td><button onclick="tinh()">=</button></td>
+        <td><button onclick="nhap('/')">:</button></td>
     </tr>
 
 </table>
 
 <script>
-    alert(eval('4+5')
+    var emp= '  ';
+    function nhap(so) {
+        let result = document.getElementById('result');
+        emp += so;
+        result.value= emp;
+    }
+    function tinh(){
+        let result= document.getElementById('result');
+        result.value= eval(result.value);
+    }
+    function xoagiatri(){
+        let result= document.getElementById('result');
+        result.value= "  ";
+        emp = '  ';
+    }
 </script>
 </body>
 </html>

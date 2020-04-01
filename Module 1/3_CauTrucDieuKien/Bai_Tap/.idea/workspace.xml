@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e1e41a75-262d-43f1-b444-33261af1d8d1" name="Default Changelist" comment="" />
+    <list default="true" id="e1e41a75-262d-43f1-b444-33261af1d8d1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doyouloveme.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/puzzlegame.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../4_CauTrucLap/Thuc_Hanh/dowhilesample.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../4_CauTrucLap/Thuc_Hanh/vongapwhile2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../4_CauTrucLap/Thuc_Hanh/vonglapfor1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../4_CauTrucLap/Thuc_Hanh/vonglapfor2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../4_CauTrucLap/Thuc_Hanh/vonglaplongnhau.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../4_CauTrucLap/Thuc_Hanh/vonglapwhile1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MayTinhDonGianok.html" beforeDir="false" afterPath="$PROJECT_DIR$/MayTinhDonGianok.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maytinhdongian.html" beforeDir="false" afterPath="$PROJECT_DIR$/maytinhdongian.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +27,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
   <component name="ProjectId" id="1ZjsaRo7LTlttLKITtEVnr7jTUy" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -23,8 +40,9 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/giaiphuongtrinhb2.html" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/tinhthuethunhapcanhan.html" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -40,7 +58,10 @@
       <workItem from="1585394025828" duration="862000" />
       <workItem from="1585436557194" duration="6020000" />
       <workItem from="1585529167816" duration="21801000" />
-      <workItem from="1585568614522" duration="16627000" />
+      <workItem from="1585568614522" duration="20119000" />
+      <workItem from="1585636468006" duration="1113000" />
+      <workItem from="1585704143555" duration="16832000" />
+      <workItem from="1585725757509" duration="5569000" />
     </task>
     <servers />
   </component>
@@ -52,10 +73,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="147" y="33" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1585365183478" />
-    <state x="473" y="133" key="FileChooserDialogImpl" timestamp="1585621373162">
+    <state x="473" y="133" key="FileChooserDialogImpl" timestamp="1585723963868">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="473" y="133" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1585621373162" />
+    <state x="473" y="133" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1585723963868" />
     <state x="356" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1585437590002">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
