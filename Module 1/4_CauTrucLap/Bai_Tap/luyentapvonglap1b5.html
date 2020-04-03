@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let number=20;
+    let count=0;
+    let nextnum=0;
+    let result=0;
+    for (i=1,j=1;count<number;i=j,j=nextnum){
+        nextnum= i+j;
+        result += i;
+        count++;
+    }
+    alert ("Tổng của 20 số đầu tiên trong dãy Fibonacci là: "+ result);
+
+</script>
+
+</body>
+</html>

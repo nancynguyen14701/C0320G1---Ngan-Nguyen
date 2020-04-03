@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="tryit()">Chơi!</button>
+<script>
+    var a, b, c, x;
+
+    function tryit() {
+        alert("Hãy nhập khoảng số");
+        a = parseInt(prompt('Số đầu của khoảng bạn muốn chọn:  '));
+        b = parseInt(prompt('Số cuối của khoảng bạn muốn chọn: '));
+        x = (Math.floor(Math.random() * b) + a);
+        c = parseInt(prompt('Nhập số bạn muốn đoán trong khoảng đã chọn: '));
+        for (i = 1; i <= 3; i++) {
+            if (c == x) {
+                alert("Chúc mừng, bạn đã đoán đúng");
+                break;
+            } else {
+                if (c < a || c > b) {
+                    alert("Hãy nhập đúng khoảng số");
+                }
+                if (c < x) {
+                    alert('Lớn hơn');
+                }
+                if (c > x) {
+                    alert('Bé thua');
+                }
+                parseInt(prompt('Đoán lại lần nữa: '));
+            }
+        }
+        alert ('Loser!')
+    }
+
+
+</script>
+
+</body>
+</html>

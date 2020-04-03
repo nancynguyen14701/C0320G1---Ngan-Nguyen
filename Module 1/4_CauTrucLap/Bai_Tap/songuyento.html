@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    let number = 20;
+    let count = 0;
+    for (N = 2; count < number; N++) {
+        function check(N) {
+            for (i = 2; i <= Math.sqrt(N); i++) {
+                if (N % i == 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+    if (check(N)) {
+            document.write(N + "  ");
+            count++;
+        }
+    }
+
+</script>
+
+
+</body>
+</html>
