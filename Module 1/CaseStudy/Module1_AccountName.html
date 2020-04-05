@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let name = prompt('Hãy nhập tên bạn: ');
+    let idNumber = prompt('Số CMND: ');
+    let birthday = prompt('Ngày tháng năm sinh (date/month/year): ');
+    let address = prompt('Địa chỉ nhà bạn: ');
+    let email = prompt('Cho xin cái email nào: ');
+    let customerType = prompt('Loại khách hàng (Diamond, Platinum, Gold, Silver, Member): ');
+    let discount = parseInt(prompt('Phần trăm giảm giá nếu có: '));
+    let quantity = prompt('Số lượng đi kèm: ');
+    let rentDays = prompt('Số ngày thuê: ');
+    let serviceType = prompt('Loại dịch vụ (Villa, House, Room): ');
+    let roomType = prompt('Loại phòng thuê (Vip, Business,  Normal): ');
+    document.write("Họ và tên:  " + name+ '</br>');
+    document.write("Số CMND: " + idNumber+'</br>');
+    document.write("Ngày tháng năm sinh: "+ birthday+'</br>');
+    document.write("Địa chỉ nhà: "+ address+'</br>');
+    document.write("Email: "+ email+'</br>');
+    document.write("Loại khách hàng (Diamond, Platinum, Gold, Silver, Member): "+ customerType+'</br>');
+    document.write("Mã giảm giá: "+discount+'</br>');
+    document.write("Số lượng đi kèm: "+ quantity+'</br>');
+    document.write("Số ngày thuê: "+ rentDays+'</br>');
+    document.write("Loại dịch vụ (Villa, House, Room): "+serviceType+'</br>');
+    document.write("Loại phòng thuê (Vip, Business,  Normal): " + roomType+'</br>');
+    let expense;
+    let price;
+    if (serviceType==='Villa') {
+        price= 500
+    }
+    if (serviceType==='House'){
+        price= 300
+    }
+    if (serviceType==='Room'){
+        price= 100
+    }
+    expense= price*rentDays*(1-discount/100);
+    document.write("Số tiền phải trả: "+expense+'</br>');
+
+</script>
+</body>
+</html>
