@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+let a= 'ban la ai';
+let b= 'abcdefghijklmnopqrstuvwxyz';
+let count=0;
+if (a[0]!==' '){
+    count++;
+}
+    for (i=0;i<a.length;i++){
+
+        if (a[i]===' '&&(b.indexOf(a[i+1]))!==-1){
+            count++;
+        }
+    }
+document.write("Số từ trong mảng là: "+ count);
+</script>
+
+</body>
+</html>

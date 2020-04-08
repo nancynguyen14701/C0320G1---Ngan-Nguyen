@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Numbers: <input id="measureNumbers" type="number"
+                oninput = "measurementConverter(this.value)" onchange = "measurementConverter(this.value)">
+<label>From:</label>
+<select id="fromUnit">
+    <option value="Metre">Metre</option>
+    <option value="Feet">Feet</option>
+</select>
+<label>To:</label>
+<select id="toUnit">
+   <option value="Feet">Feet</option>
+    <option value="Metre">Metre</option>
+</select>
+<input id="result">
+<script>
+    function measurementConverter(valNum){
+        let result=0;
+        let fromUnit= document.getElementById("fromUnit").value;
+        let toUnit=document.getElementById("toUnit").value;
+        if (fromUnit ==="Metre" && toUnit==="Feet" ) {
+            result= 3.279 * valNum;
+        }
+        else if (fromUnit==="Feet"&& toUnit==="Metre"){
+            result= 0.305 * valNum;
+        }
+        else {
+            alert ("Hay lua chon don vi chuyen doi");
+        }
+        document.getElementById("result").value=result;
+    }
+
+
+</script>
+</body>
+</html>

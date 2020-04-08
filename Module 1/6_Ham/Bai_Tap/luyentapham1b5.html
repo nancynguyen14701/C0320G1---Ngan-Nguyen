@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let c = prompt('Nhập tên ngôi sao muốn tìm: ');
+    let a = ['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe'];
+    let b = ['Ursa Minor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major', 'Leo'];
+    let d = findStars(c);
+    alert(d);
+
+    function findStars(abc) {
+        for (i = 0; i < a.length; i++) {
+            if (abc === a[i]) {
+                return b[i];
+            }
+        }
+        for (i = 0; i < a.length; i++){
+            if (abc!==a[i]){
+                alert("Không tìm thấy");
+            }
+        }
+
+    }
+
+
+</script>
+</body>
+</html>

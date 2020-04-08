@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var numbers =[1,2,4,6,8,76,5];
+    var max = numbers [0];
+    var sum = numbers[0];
+    for (i=1; i<numbers.length; i++){
+        if(max<numbers[i]){
+            max=numbers[i]
+        }
+        sum += numbers[i]
+    }
+    var average = sum/(numbers.length);
+    document.write('Số lớn nhất trong mảng là: '+ max+'</br>');
+    document.write('Trung bình cộng của mảng là: '+ average);
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = "Toi la bahowef";
+    let b = "Toi la ai";
+    let count = 0;
+
+    function check(length) {
+        for (i = 0; i < length; i++) {
+            if (a[i] !== b[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+    let length;
+    if (a.length > b.length) {
+        length = a.length;
+    } else {
+        length = b.length;
+    }
+
+    if (check(length)) {
+
+        alert('Hai chuỗi giống nhau');
+    } else {
+        alert('Hai chuỗi khác nhau');
+    }
+
+
+</script>
+
+</body>
+</html>

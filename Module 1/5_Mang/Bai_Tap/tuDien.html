@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+English word: </br>
+<input type="text" id="english"></br>
+<button type='button' onclick="translatea()">Translate</button>
+</br>
+Vietnamese meaning: </br>
+<input id="vietnamese"></br>
+
+<script>
+    var englishWords = ['dog', 'cat', 'rabbit', 'rice', 'water'];
+    var vietnameseMean = ['chó', 'mèo', 'thỏ', 'gạo', 'nước'];
+
+    function translatea() {
+        console.log(englishWords);
+        let a = document.getElementById('english');
+
+        let vietnamese = '';
+        let check = false;
+        for (i = 0; i < englishWords.length; i++) {
+            if (englishWords[i] === a.value) {
+                vietnamese = vietnameseMean[i];
+                check = true;
+                document.getElementById("vietnamese").value = vietnamese;
+            }
+
+        }
+        if (check == false) {
+            alert('Không tìm thấy kết quả!');
+        }
+    }
+</script>
+</body>
+</html>
