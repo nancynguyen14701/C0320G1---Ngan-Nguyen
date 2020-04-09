@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = ['a','b','o','abc','k','q','k','i','a'];
+    let b= prompt('Nhập vào ký tự bất kỳ: ');
+    let c=check(b);
+    alert(c);
+    function check(kytu){
+        let count=0;
+        for (i=0;i<a.length;i++){
+            if(kytu === a[i]){
+                count++
+            }
+        }
+        return count
+        for (i=0;i<a.length;i++){
+            if(kytu!==a[i]){
+                return -1;
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

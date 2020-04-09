@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a= parseInt(prompt("Nhập số nguyên 1: "));
+    let b= parseInt(prompt("Nhập số nguyên 2: "));
+    let check=converse(a,b);
+
+    function converse(a,b){
+        let temp;
+        temp=b;
+        b=a;
+        a=temp;
+        alert('Số nguyên 1 là: '+ a);
+        alert('Số nguyên 2 là: '+b);
+    }
+</script>
+
+</body>
+</html>

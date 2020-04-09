@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = parseInt(prompt("Nhập vào 1 số nguyên bất kỳ: "));
+    let b = tinhGiaiThua();
+    alert ("Giai thừa của số vừa nhập là: "+ b);
+    function tinhGiaiThua(){
+        let result=1;
+        for (i=1;i<=a;i++){
+            result *= i;
+        }
+        return result
+    }
+</script>
+</body>
+</html>

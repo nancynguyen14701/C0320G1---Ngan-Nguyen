@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let r = parseFloat(prompt("Hãy nhập bán kính đường tròn: "));
+    const PI=3.1415;
+    let chuVi= calculatePerimeter(r);
+    let dienTich= calculateArea(r);
+    alert ("Chu vi hình tròn là: "+ chuVi);
+    alert ('Diện tích hình tròn là: '+ dienTich);
+
+
+    function calculateArea(num){
+        let result=0;
+        result = num*num*PI;
+        return result
+    }
+    function calculatePerimeter(num){
+        let result1= 0;
+        result1=2*num*PI;
+        return result1;
+    }
+
+</script>
+</body>
+</html>

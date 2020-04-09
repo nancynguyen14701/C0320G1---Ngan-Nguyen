@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    let product = ['Gucci', 'Channel', 'Versace', 'Blossom','Mango'];
+    addProduct()
+    showProductList()
+
+    function showProductList(){
+        let bang;
+        bang= "<table width='80%' height='50%' cellspacing='1' cellpadding='10' border='2'>"
+        bang += "<tr>";
+        bang+= "<th>STT</th>";
+        bang+="<th>Tên sản phẩm</th>";
+        bang+="<th>Xóa sản phẩm</th>";
+        bang+="<th>Chỉnh sửa</th>";
+        for (i=1; i<product.length+1;i++){
+            bang+="<tr>";
+            bang+="<td>" + i+ "</td>"
+            bang+="<td>"+product[i-1]+"</td>"
+            bang+="<td>"+"<button onclick='deleteProduct("+(i-1)+")'>Delete</button>"
+            bang+="<td>"+"<button onclick='editProduct("+ ( i-1)+")'>Edit</button>"
+            bang+="</tr>"
+        }
+        document.write(bang);
+
+    }
+    function addProduct(){
+        let them;
+        them= "<form>"
+        them+= "<input type='text' id='addAproduct'>"
+        them+= "<button onclick='add()'>Thêm sản phẩm</button>"
+        them+="</form>"
+        document.write(them);
+
+    }
+    function add() {
+        let newProduct= document.getElementById("addAproduct");
+        product.push(newProduct.value);
+        alert(product);
+        alert ('Đã thêm vào danh sách')
+    }
+    function editProduct(a){
+        alert ('Tên sản phẩm muốn sửa: '+ product[a])
+        let rename= prompt('Nhập tên muốn sửa: ');
+         product[a]=rename;
+         alert(product);
+    }
+    function deleteProduct(a){
+        alert('Tên sản phẩm muốn xóa: '+ product[a])
+        delete product[a];
+        alert (product);
+    }
+
+
+</script>
+
+</body>
+</html>
