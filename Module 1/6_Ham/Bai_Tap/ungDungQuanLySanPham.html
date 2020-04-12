@@ -9,7 +9,6 @@
 <script>
 
     let product = ['Gucci', 'Channel', 'Versace', 'Blossom','Mango'];
-    addProduct()
     showProductList()
 
     function showProductList(){
@@ -20,6 +19,8 @@
         bang+="<th>Tên sản phẩm</th>";
         bang+="<th>Xóa sản phẩm</th>";
         bang+="<th>Chỉnh sửa</th>";
+        bang+="<button onclick='add()'>Add a product</button>"
+        bang+="<input type='text' id='addAproduct'>"
         for (i=1; i<product.length+1;i++){
             bang+="<tr>";
             bang+="<td>" + i+ "</td>"
@@ -30,14 +31,6 @@
         }
         document.write(bang);
 
-    }
-    function addProduct(){
-        let them;
-        them= "<form>"
-        them+= "<input type='text' id='addAproduct'>"
-        them+= "<button onclick='add()'>Thêm sản phẩm</button>"
-        them+="</form>"
-        document.write(them);
 
     }
     function add() {
@@ -45,17 +38,20 @@
         product.push(newProduct.value);
         alert(product);
         alert ('Đã thêm vào danh sách')
+        showProductList()
     }
     function editProduct(a){
         alert ('Tên sản phẩm muốn sửa: '+ product[a])
         let rename= prompt('Nhập tên muốn sửa: ');
          product[a]=rename;
          alert(product);
+        showProductList()
     }
     function deleteProduct(a){
         alert('Tên sản phẩm muốn xóa: '+ product[a])
-        delete product[a];
+        product.splice(a,1);
         alert (product);
+        showProductList()
     }
 
 
