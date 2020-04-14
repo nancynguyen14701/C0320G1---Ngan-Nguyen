@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas width="300" height="400" id="myCanvas"></canvas>
+<script>
+    var canvas= document.getElementById("myCanvas")
+    var ctx= canvas.getContext("2d")
+    function Rectangle(height, width){
+        this.height= height;
+        this.width= width;
+        this.area= function(){
+            return height*width
+        }
+        this.perimeter= function(){
+            return 2*(height+width)
+        }
+        this.showRectangle= function(){
+            ctx.fillStyle= "rgb(300,100,200)";
+            ctx.fillRect(50,40,width,height)
+        }
+    }
+    var rectangle1= new Rectangle(100,150)
+    rectangle1.showRectangle()
+    console.log(rectangle1.area())
+    console.log(rectangle1.perimeter())
+</script>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input  id="battery">
+<script>
+
+    function Mobile(battery, status) {
+        this.status = status
+        this.battery = battery
+        this.power = function (status) {
+            if (status) {
+                status = false;
+            } else {
+                status = true
+            }
+            return status;
+        };
+        this.mode = function () {
+            if (true) {
+                alert("Your phone is on")
+            } else {
+                alert("Your phone is off")
+            }
+        }
+        this.decreaseEnergy = function () {
+            if (this.battery > 0) {
+                this.battery--;
+            }
+        }
+        this.smsAdd=function () {
+            let sms= prompt('Type your text: ');
+            battery--;
+            this.currentText.push(sms)
+            return sms;
+        };
+        this.currentText = [];
+        this.incomingText = []
+        this.sentText = []
+        this.charging=function () {
+            let charge =setInterval(function(){
+                if(battery >= 100){
+                    clearInterval(charge);
+                }
+                document.getElementById("battery").value = battery +'%;
+                battery++;
+            }, 1000);
+        };
+        this.saveSmsInbox= function (inbox) {
+            this.incomingText.push(inbox);
+            this.decreaseEnergy()
+        };
+        this.saveSmsSent= function (abc) {
+            this.sentText.push(abc);
+            this.decreaseEnergy()
+        };
+        this.showSmsDen=function () {
+            alert('Danh sách tin nhắn đã nhận: '+'\n'+this.incomingText.join('\n'));
+            this.decreaseEnergy()
+        };
+        this.showSmsDi=function () {
+            alert('Danh sách tin nhắn đã gửi:'+'\n'+this.sentText.join('\n'));
+            this.decreaseEnergy()
+        };
+    }
+
+    let nokia =new mobile(80,true);
+    let iphone=new mobile(70,true);
+    let sms = nokia.smsAdd();
+    nokia.saveSmsSent(sms);
+    iphone.saveSmsInbox(sms);
+    iphone.showSmsDen();
+
+
+</script>
+</body>
+</html>
