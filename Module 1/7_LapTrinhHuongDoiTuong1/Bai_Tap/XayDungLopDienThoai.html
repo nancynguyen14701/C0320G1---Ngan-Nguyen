@@ -5,10 +5,11 @@
     <title>Title</title>
 </head>
 <body>
-<input  id="battery">
+<input id="battery">
 <script>
 
     function Mobile(battery, status) {
+
         this.status = status
         this.battery = battery
         this.power = function (status) {
@@ -19,8 +20,10 @@
             }
             return status;
         };
+
         this.mode = function () {
-            if (true) {
+
+            if (status) {
                 alert("Your phone is on")
             } else {
                 alert("Your phone is off")
@@ -30,6 +33,7 @@
             if (this.battery > 0) {
                 this.battery--;
             }
+            else {alert("Please charge your phone")}
         }
         this.smsAdd=function () {
             let sms= prompt('Type your text: ');
@@ -45,34 +49,38 @@
                 if(battery >= 100){
                     clearInterval(charge);
                 }
-                document.getElementById("battery").value = battery +'%;
+
+                document.getElementById("battery").value = battery +'%';
                 battery++;
             }, 1000);
         };
         this.saveSmsInbox= function (inbox) {
-            this.incomingText.push(inbox);
             this.decreaseEnergy()
+            this.incomingText.push(inbox);
+
         };
         this.saveSmsSent= function (abc) {
-            this.sentText.push(abc);
             this.decreaseEnergy()
+            this.sentText.push(abc);
+
         };
         this.showSmsDen=function () {
-            alert('Danh sách tin nhắn đã nhận: '+'\n'+this.incomingText.join('\n'));
             this.decreaseEnergy()
+            alert('Danh sách tin nhắn đã nhận: '+'\n'+this.incomingText.join('\n'));
+
         };
         this.showSmsDi=function () {
-            alert('Danh sách tin nhắn đã gửi:'+'\n'+this.sentText.join('\n'));
             this.decreaseEnergy()
+            alert('Danh sách tin nhắn đã gửi:'+'\n'+this.sentText.join('\n'));
+
         };
     }
 
-    let nokia =new mobile(80,true);
-    let iphone=new mobile(70,true);
+    let nokia =new Mobile(-1,true);
+    let iphone=new Mobile(70,true);
     let sms = nokia.smsAdd();
     nokia.saveSmsSent(sms);
-    iphone.saveSmsInbox(sms);
-    iphone.showSmsDen();
+    nokia.charging()
 
 
 </script>

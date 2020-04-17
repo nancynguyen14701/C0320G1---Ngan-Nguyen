@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let check = false;
+
+
+    let name = prompt("Your full name: ")
+    let tempName= ' ';
+    for (i = 0; i < name.length; i++) {
+        name.trim().toLowerCase()
+        if (name.charAt(i) === ' ' && name.charAt(i + 1) === ' ') {
+            continue;
+        }
+        if (i == 0 || name.charAt(i - 1) === ' ') {
+            tempName += name.charAt(i).toUpperCase()
+            continue;
+        }
+        tempName += name.charAt(i);
+    }
+    name = tempName;
+    alert(name);
+
+
+    do {
+        let idNumber = prompt("Your ID number: ")
+        let regexp = /^[0-9]{8}$/g;
+        if (regexp.test(idNumber)) {
+            alert("OK")
+        } else {
+            alert("UNVALIDATED ID, please check again")
+            idNumber = prompt("Your ID number: ")
+            continue;
+        }
+        check = true
+    } while (!check)
+
+
+    check = false;
+    do {
+        let email = prompt("Your email: ")
+        let regexp1 = /^\w+@[A-Za-z0-9]+(\.[a-z]+)$/
+        if (regexp1.test(email)) {
+            alert("OK")
+        } else {
+            alert("UNVALIDATED EMAIL, please check again")
+            continue;
+        }
+        check = true;
+    } while (!check)
+
+
+    check = false;
+    do {
+        let birthday = prompt("Your date of birth: ")
+        if (birthday.charAt(2) === "/" && birthday.charAt(5) === "/") {
+            let day = birthday.substring(0, 2)
+            let month = birthday.substring(3, 5)
+            let year = birthday.substring(6, 10)
+            if (!isNaN(day) && !isNaN(month) && !isNaN(year)) {
+                day = Number.parseInt(day)
+                month = Number.parseInt(month)
+                year = Number.parseInt(year)
+                if (day > 0 && month > 0 && year > 0) {
+                    if (day < 32 && month < 13 && year > 1920) {
+                        alert("OK")
+                        check = true
+                    }
+                }
+            }
+        }
+    if(!check){
+        alert("UNVALIDATED FORMAT, please check again")
+    }
+    } while (!check)
+
+
+
+    check = false;
+    do {
+        let rentDays = parseInt(prompt("Enter your days of rent: "))
+        if (rentDays > 0) {
+            alert("OK")
+        } else {
+            alert("UNVALIDATED FORMAT, please check again")
+            continue;
+        }
+    check=true;
+    } while (!check)
+
+</script>
+
+</body>
+</html>

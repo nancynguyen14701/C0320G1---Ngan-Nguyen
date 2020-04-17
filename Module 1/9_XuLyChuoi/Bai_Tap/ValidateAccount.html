@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function isValidateAccount(str){
+        let regexp=/^[\w]{6,}$/
+        if (regexp.test(str)){
+            return true
+        }
+        return false
+    }
+    var account1= 'ngannguyen14701'
+    console.log(isValidateAccount(account1))
+</script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var str= "Toi yeu ngon ngu lap trinh Javascript"
+    function findA(abc){
+       let regexp=/a/g
+        let result= abc.match(regexp)
+        return result.length
+    }
+    var find = findA(str)
+    console.log(find)
+function splitString(abc){
+      let regexp1= /[a-zA-Z]+/g
+    let result1= abc.match(regexp1)
+    return result1
+}
+console.log(splitString(str))
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function countWords(str) {
+        let regexp = /\w\b/g
+        let result = str.match(regexp)
+        return result.length
+    }
+    var string1= " Toi that de thuong qua di"
+   console.log("Số từ của chuỗi là: " + countWords(string1))
+</script>
+
+</body>
+</html>

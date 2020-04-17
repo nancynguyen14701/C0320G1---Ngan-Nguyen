@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function isValidateClassName(str){
+        let regexp= /^[ACP][0-9]{4}[GHIKLM]$/;
+        if(regexp.test(str)){
+            return true
+        }
+        return false
+    }
+var class1= "C0318G"
+    console.log(isValidateClassName(class1))
+</script>
+
+</body>
+</html>

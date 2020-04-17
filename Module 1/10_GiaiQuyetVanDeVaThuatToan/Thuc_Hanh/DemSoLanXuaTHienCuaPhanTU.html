@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function dispArr(arr) {
+        for (var i = 0; i < arr.length; ++i) {
+            putstr(arr[i] + " ");
+            if(i%10==9){
+                putstr("\n");
+            }
+        }
+        if(i%10!=0){
+            putstr("\n");
+        }
+    }
+    function count(arr, data) {
+        var count = 0;
+        var position = binSearch(arr, data);
+        if (position > -1) {
+            ++count;
+            for (var i = position-1; i > 0; --i) {
+                if (arr[i] == data) {
+                    ++count;
+                }
+                else {
+                    break;
+                }
+            }
+
+            for (var i = position+1; i < arr.length; ++i) {
+                if (arr[i] == data) {
+                    ++count;
+                }
+                else {
+                    break;
+                }
+            }
+        }
+        return count;
+    }
+    var nums = [];
+    for(vari=0;i<100;++i)
+        nums[i] = Math.floor(Math.random() * 101);
+    }
+    insertionsort(nums);
+    dispArr(nums);
+    document.write("<br/>");
+    var val = parseInt(prompt("Enter a value to count: "));
+    var retVal = count(nums, val);
+    document.write("Found " + retVal + " occurrences of " + val + ".");
+</script>
+
+</body>
+</html>

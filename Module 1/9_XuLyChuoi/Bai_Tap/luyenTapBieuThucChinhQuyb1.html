@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function isValidateDate(str){
+        let regexp=/^[0-3][0-9]\/[01][0-9]\/[0-9]{4}/
+        if(regexp.test(str)){
+            return true
+        }
+        return false
+    }
+var date1= "22/12/2019"
+    console.log(isValidateDate(date1))
+</script>
+
+</body>
+</html>
