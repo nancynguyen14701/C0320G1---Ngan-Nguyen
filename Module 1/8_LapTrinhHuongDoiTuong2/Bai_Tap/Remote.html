@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Television{
+        constructor(status,volume,channel){
+            this.status= status;
+            this.volume=volume
+            this.channel= channel
+    }
+    power(){
+        if(this.status){
+            alert("Turning off")
+           this.status=false
+        }
+        else {
+            alert("Turning on")
+        this.status=true
+        }
+    }
+    getVolume(){
+            return this.volume
+    }
+    getStatus(){
+            return this.status
+    }
+    changeChannel(anotherChannel){
+         return   this.channel=anotherChannel
+    }
+    increaseVolume(donvi){
+            this.volume+=donvi
+    }
+    decreaseVolume(donvi){
+            this.volume-= donvi
+    }
+    }
+    class Remote{
+        constructor(ma){
+            this.ma=ma
+    }
+    turnOnOff(tv){
+         tv.power()
+    }
+    letsChangeCha(tv,channel){
+            tv.changeChannel(channel)
+    }
+    letsIncreaseVolume(tv,donvi){
+        tv.increaseVolume(donvi)
+    }
+    letsDecreaseVolume(tv,donvi){
+         tv.decreaseVolume(donvi)
+        }
+    }
+    var tv1 = new Television(false,50,3)
+    var remote1= new Remote(12)
+    tv1.power()
+    tv1.changeChannel(7)
+    remote1.letsChangeCha(tv1,3)
+    remote1.letsIncreaseVolume(tv1,2)
+    remote1.turnOnOff(tv1);
+
+
+</script>
+
+</body>
+</html>

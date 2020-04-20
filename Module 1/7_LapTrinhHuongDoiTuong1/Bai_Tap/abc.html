@@ -1,244 +1,180 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>PhatTrienGameLaiXe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* div {
+            border: 1px solid red;
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            text-align: center;
+        } */
+        .center {
+            line-height: 60px;
+            position: absolute;
+            height: 40px;
+            width: 40px;
+            border: 1px solid green;
+            text-align: center;
+        }
+
+        .center p {
+            line-height: 1;
+            display: inline-block;
+            vertical-align: middle;
+            color: red;
+        }
+    </style>
 </head>
-<body onload="docReady()">
-<h4><p id="speed"></p></h4>
-<h4><p id="diem"></p></h4>
-<h4><p id="maxDiem"></p></h4>
-<img id="car" src="images/car.png" style="position:absolute;left:600px; top:250px;" height="150" width="90"/>
-<img id="coin" src="images/coin.png" style="position:absolute;left:auto;top:auto;" height="90" width="90"/>
-<script>
-    let car = document.getElementById("car");
-    let carCoordinates=[];
-    let rockCoordinates=[];
-    let rockTop;
-    let rockLeft;
-    let coinCoordinates=[];
-    let coinTop;
-    let coinLeft;
-    let run;
-    let speed=1;
-    let diem=0;
-    let maxDiem=0;
-    document.getElementById('speed').innerText='Level speed: '+speed;
-    document.getElementById('diem').innerText='Diem so: '+diem+' $';
-    document.getElementById('maxDiem').innerText='Diem cao nhat: '+diem+' $';
-    let status;
-    let statusRock;
-    let statusCoin=false;
-    let rockCount=Math.round(Math.random()*5);
-    makeRock();
-    makeCoin();
-    let carGame= {
-        carUp: function (evt) {
-            statusRock=false;
-            statusCoin=false;
-            car.height=150;
-            car.width=90;
-            car.src = 'images/car.png';
-            run=setInterval(function () {
-                if (car.style.top==(0+'px')){
-                    checkWall();
-                };
-                for (let i=0;i<90;i++){
-                    carCoordinates[i]=parseInt(car.style.top)+''+(parseInt(car.style.left)+i);
-                }
-                checkEnd();
-                car.style.top = parseInt(car.style.top) - speed + 'px';
-            },0);
-        },
-        carDown: function () {
-            statusRock=false;
-            statusCoin=false;
-            car.height=150;
-            car.width=90;
-            car.src = 'images/carD.png';
-            run=setInterval(function () {
-                if (car.style.top==(500+'px')){
-                    checkWall();
-                };
-                for (let i=0;i<90;i++){
-                    carCoordinates[i]=(parseInt(car.style.top)+150)+''+(parseInt(car.style.left)+i);
-                }
-                checkEnd();
-                car.style.top = parseInt(car.style.top) + speed + 'px';
-            },0);
-        },
-        carleft: function () {
-            statusRock=false;
-            statusCoin=false;
-            car.height=90;
-            car.width=150;
-            car.src = 'images/carL.png';
-            run=setInterval(function () {
-                if (car.style.left==(0+'px')){
-                    checkWall();
-                };
-                for (let i=0;i<90;i++){
-                    carCoordinates[i]=(parseInt(car.style.top)+i)+''+parseInt(car.style.left);
-                }
-                checkEnd();
-                car.style.left = parseInt(car.style.left) - speed + 'px';
-            },0);
-        },
-        carRight: function () {
-            statusRock=false;
-            statusCoin=false;
-            car.height=90;
-            car.width=150;
-            car.src = 'images/carR.png';
-            run=setInterval(function () {
-                if (car.style.left==(1220+'px')){
-                    checkWall();
-                };
-                for (let i=0;i<90;i++){
-                    carCoordinates[i]=(parseInt(car.style.top)+i)+''+(parseInt(car.style.left)+150);
-                }
-                checkEnd();
-                car.style.left = parseInt(car.style.left) + speed + 'px';
-            },0);
-        },
-    };
-    function makeRock() {
-        for (let i=0;i<rockCount;i++) {
-            let left = Math.round(Math.random() * 1220);
-            let top = Math.round(Math.random() * 500);
-            document.write('<img id="rock'+i+'" src="images/box.gif" style="position:absolute;left:' + left + 'px;top:' + top + 'px;" height="90" width="90"/>');
-            rockCoordinates[i]= new Array();
-            rockTop=parseInt(document.getElementById('rock'+i).style.top);
-            rockLeft=parseInt(document.getElementById('rock'+i).style.left);
-            for (let j=0;j<90;j++){
-                rockCoordinates[i][j]=rockTop+''+(rockLeft+j);
-                rockCoordinates[i][90+j]=(rockTop+j)+''+rockLeft;
-                rockCoordinates[i][180+j]=(rockTop+90)+''+(rockLeft+j);
-                rockCoordinates[i][270+j]=(rockTop+j)+''+(rockLeft+90);
+<body>
+<Script>
+    let caroGame = new Board(20, 20); // Create a board 20x20
+    let player1 = new Player('John-X', 'X', 'red'); // player 1
+    let player2 = new Player('John-O', 'O', 'blue'); // player 2
+    let turn = 1;
+    // draw board
+    caroGame.createBoard();
+    caroGame.drawBoard();
+    // function onclick event
+    function play(id) {
+        let isOk;
+        if (turn == 1) {
+            isOk = player1.drawSign(caroGame, id);
+            if(isOk)
+                caroGame.check(player1);
+            turn = 2;
+        } else {
+            isOk = player2.drawSign(caroGame, id);
+            if(isOk)
+                caroGame.check(player2);
+            turn = 1;
+        }
+    }
+
+    function Player(name, sign, color) {
+        this.name = name
+        this.sign = sign;
+        this.color = color;
+        this.lastPos = -1;
+        this.drawSign = (caroBoard, currPos) => {
+            if(caroBoard.board[currPos] == undefined) {
+                this.lastPos = currPos;
+                caroBoard.board[currPos] = this.sign;
+                document.getElementById(currPos).style.color = this.color;
+                document.getElementById(currPos).innerHTML = this.sign;
+                return true;
             }
+            return false;
         }
     }
-    function makeCoin(){
-        document.getElementById('coin').style.left = Math.round(Math.random() * 1200) + 'px';
-        document.getElementById('coin').style.top = Math.round(Math.random() * 500) + 'px';
-        coinTop=parseInt(document.getElementById('coin').style.top);
-        coinLeft=parseInt(document.getElementById('coin').style.left);
-        for (let i=0;i<90;i++){
-            coinCoordinates[i]=coinTop+''+(coinLeft+i);
-            coinCoordinates[90+i]=(coinTop+i)+''+coinLeft;
-            coinCoordinates[180+i]=(coinTop+90)+''+(coinLeft+i);
-            coinCoordinates[270+i]=(coinTop+i)+''+(coinLeft+90);
+
+    function Board(sizeX, sizeY) {
+        this.sizeX = sizeX;
+        this.sizeY = sizeY;
+        this.lowPos;
+        this.highPos
+        this.board;
+        this.size;
+        this.createBoard = () => {
+            this.size = this.sizeX * this.sizeY;
+            this.board = new Array(this.size)
         }
-    }
-    function checkEnd(){
-        for (let a=0;a<car.width;a++){
-            for (let i=0;i<rockCount;i++){
-                for (let j=0;j<360;j++){
-                    if (carCoordinates[a]==rockCoordinates[i][j]){
-                        clearInterval(run);
-                        statusRock=true;
+        this.drawBoard = () => {
+            let board1 = "";
+            let id;
+            for(let i = 0; i < this.sizeY; i++) {
+                for(let j = 0; j < this.sizeX; j++) {
+                    id = i * this.sizeX + j;
+                    board1 += "<div class='center' onclick='play(" + id + ")' style='top:" + (40 * i) + "px; left:" + (40 * j) + "px;'> <p id='" + id + "'></p> </div>";
+                }
+                board1 += "<br>";
+            }
+            document.write(board1);
+        }
+        this.scanBoard = (sign, lowPos, highPos, step) => {
+            let count = 0;
+            for(let i = lowPos; i <= highPos; i += step) {
+                console.log("step " + step + " --sign: " + sign + " --- value " + this.board[i] + " at pos : " + i);
+                if (this.board[i] == sign) {
+                    count += 1;
+                    if (count == 5) {
+                        return count;
                     }
-                    if (carCoordinates[a]==coinCoordinates[j]){
-                        statusCoin=true;
-                    }
+                } else {
+                    count = 0;
                 }
             }
+            console.log("counter : " + count);
+            return count;
         }
-        if (statusRock){
-            alert('Den thoi do van the! '+'\n'+'Diem dat duoc: '+diem+'\n'+'Diem cao nhat: '+maxDiem);
-            if (diem>maxDiem){
-                maxDiem=diem;
-                document.getElementById('maxDiem').innerText='Diem cao nhat: '+maxDiem+' $';
+        //get position for scaning
+        this.getPosition = function (currPos, step) {
+            let tempLow;
+            let tempHigh;
+            let temp
+            if (step == 1) {
+                temp = currPos % this.sizeX;
+            } else {
+                temp = Math.floor(currPos / this.sizeX);
             }
-            diem=0;
-            document.getElementById('diem').innerText='Diem so: '+diem+' $';
-        }
-        if (statusCoin){
-            diem+=69;
-            document.getElementById('diem').innerText='Diem so: '+diem+' $';
-            if (diem>maxDiem){
-                maxDiem=diem;
-                document.getElementById('maxDiem').innerText='Diem cao nhat: '+maxDiem+' $';
+            for(let i = 0; i <= temp; i++) {
+                tempLow = currPos - i * step;
+                if (tempLow < 0) {
+                    this.lowPos = tempLow + step;
+                    break;
+                } else {
+                    this.lowPos = tempLow;
+                }
+                // if temp > 4
+                if (i == 4)
+                    break;
             }
-            makeCoin();
-            statusCoin=false;
+            for(let i = 0; i < (this.sizeX - temp); i++) {
+                tempHigh = currPos + i * step;
+                if (tempHigh > this.size) {
+                    this.highPos = tempHigh - step;
+                    break;
+                } else {
+                    this.highPos = tempHigh;
+                }
+                // if temp > 4
+                if (i == 4)
+                    break;
+            }
+        }
+        this.check = function (player) {
+            let counter;
+            // scan row
+            this.getPosition(player.lastPos, 1);
+            console.log("current: " + player.lastPos);
+            counter = this.scanBoard(player.sign, this.lowPos, this.highPos, 1);
+            // console.log(this.lowPos + "----" + this.highPos);
+            if (counter >= 5) {
+                return alert(player.name + " win.");
+            }
+            // scan column
+            this.getPosition(player.lastPos, this.sizeX);
+            counter = this.scanBoard(player.sign, this.lowPos, this.highPos, this.sizeX);
+            if (counter >= 5) {
+                return alert(player.name + " win.");
+            }
+            // scan diagnos
+            this.getPosition(player.lastPos, this.sizeX - 1);
+            counter = this.scanBoard(player.sign, this.lowPos, this.highPos, this.sizeX - 1);
+            if (counter >= 5) {
+                return alert(player.name + " win.");
+            }
+            // scan diagnos
+            this.getPosition(player.lastPos, this.sizeX + 1);
+            counter = this.scanBoard(player.sign, this.lowPos, this.highPos, this.sizeX + 1);
+            if (counter >= 5) {
+                return alert(player.name + " win.");
+            }
+
         }
     }
-    function checkWall() {
-        clearInterval(run);
-        alert('Den thoi do van the! (wall)'+'\n'+'Diem dat duoc: '+diem+'\n'+'Diem cao nhat: '+maxDiem);
-        if (diem>maxDiem){
-            maxDiem=diem;
-            document.getElementById('maxDiem').innerText='Diem cao nhat: '+maxDiem+' $';
-        }
-        diem=0;
-        document.getElementById('diem').innerText='Diem so: '+diem+' $';
-    }
-    function moveSelection(evt) {
-        if (evt.keyCode!=17 && evt.keyCode!=16 && evt.keyCode!=32){status=evt.keyCode}
-        switch (evt.keyCode) {
-            case 16:
-                clearInterval(run);
-                if (speed>1){speed--}
-                document.getElementById('speed').innerText='Level speed: '+speed;
-                switch (status) {
-                    case 37:
-                        carGame.carleft();
-                        break;
-                    case 39:
-                        carGame.carRight();
-                        break;
-                    case 38:
-                        carGame.carUp();
-                        break;
-                    case 40:
-                        carGame.carDown();
-                        break;
-                };
-                break;
-            case 17:
-                clearInterval(run);
-                if (speed<5){speed++}
-                document.getElementById('speed').innerText='Level speed: '+speed;
-                switch (status) {
-                    case 37:
-                        carGame.carleft();
-                        break;
-                    case 39:
-                        carGame.carRight();
-                        break;
-                    case 38:
-                        carGame.carUp();
-                        break;
-                    case 40:
-                        carGame.carDown();
-                        break;
-                };
-                break;
-            case 32:
-                clearInterval(run);
-                break;
-            case 37:
-                clearInterval(run);
-                carGame.carleft();
-                break;
-            case 39:
-                clearInterval(run);
-                carGame.carRight();
-                break;
-            case 38:
-                clearInterval(run);
-                carGame.carUp();
-                break;
-            case 40:
-                clearInterval(run);
-                carGame.carDown();
-                break;
-        }
-    }
-    function docReady() {
-        window.addEventListener('keydown', moveSelection);
-    }
-</script>
+</Script>
 </body>
 </html>
