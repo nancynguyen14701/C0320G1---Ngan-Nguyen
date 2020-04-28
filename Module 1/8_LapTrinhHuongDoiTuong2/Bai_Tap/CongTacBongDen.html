@@ -13,9 +13,11 @@
         turnOnOff(){
             if(this.status){
                 console.log("Turning off")
+                this.status=false;
             }
             else{
                 console.log("Turning on")
+                this.status=true;
             }
         }
     }

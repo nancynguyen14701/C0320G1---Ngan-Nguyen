@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let employeeList=[];
+    let Employee = function(){
+        this.setName=function(name){this.name=name}
+        this.getName=function(){return this.name}
+        this.setId= function(id){this.idNumber=id}
+        this.getId=function(){return this.idNumber}
+        this.setBirthday=function(birthday){this.birthday=birthday}
+        this.getBirthday=function(){return this.birthday}
+        this.setEmail=function(email){this.email=email}
+        this.getEmail=function(){return this.email}
+        this.setAddress=function(address){this.address=address}
+        this.getAddress=function(){return this.address}
+        this.setPhoneNumber=function(phoneNumber){this.phoneNumber=phoneNumber}
+        this.getPhoneNumber=function(){return this.phoneNumber}
+        this.setLevel=function(level){this.level=level}
+        this.getLevel=function(){return this.level}
+        this.setPosition=function(position){this.position=position}
+        this.getPosition=function(){return this.position}
+        this.getSalary=function(){
+            if(this.getPosition()==="Manager"){
+                this.salary=500
+            }
+            if(this.getPosition()==="Sale"){
+                this.salary=300
+            }
+            if(this.getPosition()==="Marketing"){
+                this.salary=200
+            }
+            return this.salary
+        }
+    }
+    displayMainMenu()
+    function displayMainMenu() {
+        let choose = parseInt(prompt("1.Add New Employees" + "\n"
+            + "2.Display Information Employees" + "\n"
+            + "3.Salary of Employees" + "\n"
+            + "4.Exit" + "\n" ))
+        switch(choose){
+            case 1: {
+                addNewEmployee()
+                break;
+            }
+            case 2:{
+                displayInformation()
+                break;
+            }
+            case 3:{
+                displaySalary()
+                break;
+            }
+            case 4: break;
+            default:{alert("Failed")}
+        }
+    }
+    function displaySalary(){
+        let temp='';
+        for (let i=0;i<employeeList.length;i++){
+            temp += i+"."+ employeeList[i].getName()+"\n"
+        }
+        let chooseEmployee= parseInt(prompt(temp))
+        alert(employeeList[chooseEmployee].getSalary())
+        displayMainMenu()
+    }
+    function displayInformation(){
+        let temp='';
+        for (let i=0;i<employeeList.length;i++){
+            temp += i+"."+ employeeList[i].getName()+"\n"
+        }
+        let chooseEmployee= parseInt(prompt(temp))
+        alert("Họ và tên: " + employeeList[chooseEmployee].getName() + "\n"
+            + "CMND:" + employeeList[chooseEmployee].getId() + "\n" +
+            "Ngày sinh: " + employeeList[chooseEmployee].getBirthday() + "\n" +
+            "Địa chỉ nhà: " + employeeList[chooseEmployee].getAddress() + "\n" +
+            "Địa chỉ email: " + employeeList[chooseEmployee].getEmail() + "\n" +
+        "Số điện thoại: "+ employeeList[chooseEmployee].getPhoneNumber()+ "\n"+
+                "Trình độ: "+ employeeList[chooseEmployee].getLevel() + "\n"+
+                "Vị trí làm việc: "+ employeeList[chooseEmployee].getPosition()+"\n"
+            )
+    }
+    function addNewEmployee(){
+        let employee1= new Employee()
+        let name = prompt('Hãy nhập tên bạn: ');
+        let idNumber = prompt('Số CMND: ');
+        let birthday = prompt('Ngày tháng năm sinh (date/month/year): ');
+        let address = prompt('Địa chỉ nhà bạn: ');
+        let email = prompt('Cho xin cái email nào: ');
+        let phoneNumber= prompt("Nhập số điện thoại: ")
+        let level= prompt("Nhập trình độ hiện tại:  ")
+        let position= prompt("Nhập vị trí làm việc: ")
+        employee1.setName(name)
+        employee1.setName(idNumber)
+        employee1.setName(birthday)
+        employee1.setName(address)
+        employee1.setName(email)
+        employee1.setName(phoneNumber)
+        employee1.setName(level)
+        employee1.setName(position)
+        employeeList.push(employee1)
+        alert("Employee added")
+        displayMainMenu()
+    }
+</script>
+
+</body>
+</html>

@@ -9,10 +9,11 @@
     let check = false;
 
 
-    let name = prompt("Your full name: ")
+    let abc = prompt("Your full name: ")
+    let name= abc.trim().toLowerCase()
     let tempName= ' ';
     for (i = 0; i < name.length; i++) {
-        name.trim().toLowerCase()
+
         if (name.charAt(i) === ' ' && name.charAt(i + 1) === ' ') {
             continue;
         }

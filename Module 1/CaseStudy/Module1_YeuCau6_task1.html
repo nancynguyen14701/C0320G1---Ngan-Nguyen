@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let listCustomer=[];
+    let regexEmail= /\S+@\S+\.\S+/
+    let regexBirthday= /^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/;
+    let regexNumbers=/^\d+$/
+    let regexID=/^\d{8}$/
+
+  let Customer=function(){
+      this.setName=function(name){this.name=name}
+      this.getName=function(){return this.name}
+      this.setId= function(id){this.idNumber=id}
+      this.getId=function(){return this.idNumber}
+      this.setBirthday=function(birthday){this.birthday=birthday}
+      this.getBirthday=function(){return this.birthday}
+      this.setEmail=function(email){this.email=email}
+      this.getEmail=function(){return this.email}
+      this.setAddress=function(address){this.address=address}
+      this.getAddress=function(){return this.address}
+      this.setCustomerType=function(customerType){this.customerType=customerType}
+      this.getCustomerType=function(){return this.customerType}
+      this.setDiscount=function(discount){this.discount=discount}
+      this.getDiscount=function(){return this.discount}
+      this.setQuantiy=function(quantity){this.quantity=quantity}
+      this.getQuantity=function(){return this.quantity}
+      this.setRentDays=function(rentDays){this.rentDays=rentDays}
+      this.getRentDays=function(){return this.rentDays}
+      this.setServiceType=function(serviceType){this.serviceType=serviceType}
+      this.getServiceType= function(){return this.serviceType}
+      this.setRoomType=function(roomType){this.roomType=roomType}
+      this.getRoomType=function(){return this.roomType}
+      this.totalPay= function(){
+          let payment=0;
+          if(this.getServiceType()==="Villa"){
+              payment=500
+          }
+          if(this.getServiceType()==="House"){
+              payment=300
+          }
+          if(this.getServiceType()==="Room"){
+              payment=200;
+          }
+          return this.getRentDays()*payment*(1-this.getDiscount()/100)
+      }
+
+  }
+
+  displayMainMenu()
+  function displayMainMenu() {
+      let choose = parseInt(prompt("1.Add New Customer" + "\n"
+          + "2.Display Information Customer" + "\n"
+          + "3.Display Total Pay of Customer" + "\n"
+          + "4.Edit Information Customer" + "\n"
+          + "5.Delete Customer" + "\n"
+          + "6.Exit"))
+      switch (choose) {
+          case 1: {
+              addNewCustomer()
+              break;
+          }
+          case 3:{
+              displayTotalPays()
+              break;
+          }
+      }
+  }
+  function displayTotalPays(){
+      let temp='';
+      for (let i=0;i<listCustomer.length;i++){
+          temp += i+"."+ listCustomer[i].getName()+"\n"
+      }
+      let chooseCustomer= parseInt(prompt(temp))
+      alert("Total payment: "+ listCustomer[chooseCustomer].totalPay())
+  }
+  function addNewCustomer(){
+        let check=false;
+  let customer1= new Customer()
+  let name = prompt('Hãy nhập tên bạn: ');
+  let idNumber;
+  do{
+      idNumber = prompt('Số CMND: ');
+      if(regexID.test(idNumber)){
+          check=true;
+      }
+      else{alert("INVALID FORMAT..TRY AGAIN!!")}
+  }while(!check)
+ check=false
+      let birthday;
+  do{
+       birthday = prompt('Ngày tháng năm sinh (date/month/year): ');
+      if(regexBirthday.test(birthday)){
+          check=true;
+      }
+      else{alert("INVALID FORMAT..TRY AGAIN!!")}
+  }while(!check)
+
+  let address = prompt('Địa chỉ nhà bạn: ');
+  check=false
+      let email;
+  do{
+      email = prompt('Cho xin cái email nào: ');
+      if(regexEmail.test(email)){
+          check=true;
+      }
+      else{alert("INVALID FORMAT..TRY AGAIN!!")}
+  }while(!check)
+      check=false;
+  let customerType = prompt('Loại khách hàng (Diamond, Platinum, Gold, Silver, Member): ');
+  let discount;
+  do{
+       discount = parseInt(prompt('Phần trăm giảm giá nếu có: '));
+      if(regexNumbers.test(discount)){
+          check=true;
+      }
+      else{alert("INVALID FORMAT..TRY AGAIN!!")}
+  }while(!check)
+      check=false
+  let quantity;
+      do{
+       quantity = prompt('Số lượng đi kèm: ');
+      if(regexNumbers.test(quantity)){
+          check=true;
+      }
+      else{alert("INVALID FORMAT..TRY AGAIN!!")}
+  }while(!check)
+      check=false;
+     let rentDays;
+      do{
+           rentDays = prompt('Số ngày thuê: ');
+          if(regexNumbers.test(rentDays)){
+              check=true;
+          }
+          else{alert("INVALID FORMAT..TRY AGAIN!!")}
+      }while(!check)
+      check=false;
+  let serviceType = prompt('Loại dịch vụ (Villa, House, Room): ');
+  let roomType = prompt('Loại phòng thuê (Vip, Business,  Normal): ');
+  customer1.setName(name)
+  customer1.setName(idNumber)
+  customer1.setName(birthday)
+  customer1.setName(address)
+  customer1.setName(email)
+  customer1.setName(customerType)
+  customer1.setName(discount)
+  customer1.setName(quantity)
+  customer1.setName(rentDays)
+  customer1.setName(serviceType)
+  customer1.setName(roomType)
+  listCustomer.push(customer1)
+    alert("Customer added")
+      displayMainMenu()
+
+  }
+
+
+
+
+
+</script>
+</body>
+</html>

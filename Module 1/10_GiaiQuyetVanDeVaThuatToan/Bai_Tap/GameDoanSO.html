@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a=new Array(10000);
+    for (let i=0;i<a.length;i++){
+        a[i]= Math.floor(Math.random()*10)
+    }
+
+
+
+    function linear_search(arr,value){
+        for(i=0;i<arr.length;i++){
+            if(arr[i]==value){
+                alert("Found at index "+i)
+                return i;
+            }
+        }
+        return -1;
+    }
+    function binary_search(arr,value){
+        let low=0;
+        let high=arr.length-1;
+        let mid=0;
+        while (low<=high) {
+            mid = Math.floor((low + high) / 2)
+            if (arr[mid] == value) {
+                alert("Found at index " + mid)
+                return mid;
+            }
+            if (arr[mid] < value) {
+                low = mid + 1;
+            }
+
+            if (arr[mid] > value) {
+                high = mid - 1;
+            }
+        }
+        return -1;
+    }
+    let sorted= a.sort(function(i,j){return i-j})
+    alert(binary_search(a,8))
+
+    let start = Date.now()
+    binary_search(a,8)
+    let end = Date.now()
+    document.write(end-start)
+
+
+</script>
+
+</body>
+</html>

@@ -7,22 +7,26 @@
 <body>
 
 <script>
-    let number = 20;
-    let count = 0;
-    for (N = 2; count < number; N++) {
-        function check(N) {
-            for (i = 2; i <= Math.sqrt(N); i++) {
-                if (N % i == 0) {
-                    return false;
-                }
+
+    let number=20;
+    let count=0;
+    function isPrime(a){
+        for(i=2;i<Math.sqrt(a);i++){
+            if(a%i==0){
+                return false;
             }
-            return true;
         }
-    if (check(N)) {
-            document.write(N + "  ");
-            count++;
-        }
+        return true;
     }
+    for(let N=2;count<number;N++){
+      if(isPrime(N)){
+          count++
+          document.write(N + "\t")
+      }
+    }
+
+
+
 
 </script>
 

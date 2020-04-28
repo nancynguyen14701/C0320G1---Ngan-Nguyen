@@ -12,14 +12,17 @@
 <button onclick="Subtract()"> Subtraction(-) </button>
 <button onclick="Multiple()"> Multiplication(x) </button>
 <button onclick="Devide()"> Devision(/) </button></br>
-<input id="result">
+<p id="result"></p>
+
 
 <script>
     function Add() {
         let a = parseFloat(document.getElementById("number1").value);
         let b = parseFloat(document.getElementById("number2").value);
         let result= a+b;
-        document.getElementById("result").value=result
+
+        document.getElementById("result").innerHTML=result;
+
             }
     function Subtract() {
         let a = parseFloat(document.getElementById("number1").value);
