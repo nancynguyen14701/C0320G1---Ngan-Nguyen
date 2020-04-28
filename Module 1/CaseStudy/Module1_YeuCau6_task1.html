@@ -7,6 +7,7 @@
 <body>
 <script>
     let listCustomer = [];
+    while(true){
     let regexEmail = /\S+@\S+\.\S+/
     let regexBirthday = /^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/;
     let regexNumbers = /^\d+$/
@@ -121,80 +122,93 @@
                 editInfo()
                 break;
             }
+            case 5: {
+                deleteCustomer()
+            }
         }
     }
-    function editInfo(){
-        let temp='';
-        for (let i=0;i<listCustomer.length;i++){
-            temp += i+"."+ listCustomer[i].getName()+"\n"
+    function deleteCustomer(){
+        let temp = '';
+        for (let i = 0; i < listCustomer.length; i++) {
+            temp += i + "." + listCustomer[i].getName() + "\n"
         }
-        let chooseCustomer= parseInt(prompt(temp))
-        let infoEdit = parseInt(prompt("Nhập số tương ứng với phần bạn muốn sửa"+"\n"+"1.Họ và tên: " + listCustomer[chooseCustomer].getName() + "\n"
+        let chooseCustomer = parseInt(prompt(temp))
+        listCustomer.splice(chooseCustomer,1)
+        deleteCustomer()
+        displayMainMenu()
+    }
+    function editInfo() {
+        let temp = '';
+        for (let i = 0; i < listCustomer.length; i++) {
+            temp += i + "." + listCustomer[i].getName() + "\n"
+        }
+        let chooseCustomer = parseInt(prompt(temp))
+        let infoEdit = parseInt(prompt("Nhập số tương ứng với phần bạn muốn sửa" + "\n" + "1.Họ và tên: " + listCustomer[chooseCustomer].getName() + "\n"
             + "2.CMND" + listCustomer[chooseCustomer].getId() + "\n" +
             "3.Ngày sinh: " + listCustomer[chooseCustomer].getBirthday() + "\n" +
             "4.Địa chỉ nhà: " + listCustomer[chooseCustomer].getAddress() + "\n" +
-            "5.Địa chỉ email: " +listCustomer[chooseCustomer].getEmail() + "\n" +
-            "6.Loại khách hàng: " +listCustomer[chooseCustomer].getCustomerType() + "\n" +
+            "5.Địa chỉ email: " + listCustomer[chooseCustomer].getEmail() + "\n" +
+            "6.Loại khách hàng: " + listCustomer[chooseCustomer].getCustomerType() + "\n" +
             "7.Giảm giá: " + listCustomer[chooseCustomer].getDiscount() + "\n" +
             "8.Số lượng: " + listCustomer[chooseCustomer].getQuantity() + "\n" +
             "9.Số ngày thuê: " + listCustomer[chooseCustomer].getRentDays() + '\n' +
-            "10.Loại dịch vụ: " +listCustomer[chooseCustomer].getServiceType() + "\n" +
+            "10.Loại dịch vụ: " + listCustomer[chooseCustomer].getServiceType() + "\n" +
             "11.Loại phòng: " + listCustomer[chooseCustomer].getRoomType() + "\n"))
         switch (infoEdit) {
             case 1: {
-                listCustomer[chooseCustomer].setBirthday(prompt("Nhập tên muốn sửa: "))
-                editInfo()
+                listCustomer[chooseCustomer].setName(prompt("Nhập tên muốn sửa: "))
+               displayCusInfo()
                 break;
             }
 
             case 2: {
                 listCustomer[chooseCustomer].setId(prompt("Nhập CMND: "))
-                editInfo()
+                displayCusInfo()
                 break;
             }
             case 3: {
-                listCustomer[chooseCustomer].settBirthday(prompt("Nhập lại ngày sinh: "))
+                listCustomer[chooseCustomer].setBirthday(prompt("Nhập lại ngày sinh: "))
                 editInfo()
                 break;
             }
             case 4: {
-                arrListCustomers[chooseCustomer][3] = prompt("Nhập địa chỉ nhà: ")
-                editCustomer()
+                listCustomer[chooseCustomer].setAddress(prompt("Nhập địa chỉ nhà: "))
+                editInfo()
                 break;
             }
             case 5: {
-                arrListCustomers[chooseCustomer][4] = prompt("Nhập lại email: ")
-                editCustomer()
+                listCustomer[chooseCustomer].setEmail(prompt("Nhập lại email: "))
+                editInfo()
                 break;
             }
             case 6: {
-                arrListCustomers[chooseCustomer][5] = prompt("Nhập loại khách hàng: ")
+                listCustomer[chooseCustomer].setCustomerType(prompt("Nhập loại khách hàng: "))
                 editCustomer()
                 break;
             }
             case 7: {
-                arrListCustomers[chooseCustomer][6] = prompt("Giảm giá: ")
-                editCustomer()
+                listCustomer[chooseCustomer].setDiscount(prompt("Giảm giá: "))
+                editInfo()
                 break;
             }
             case 8: {
-                arrListCustomers[chooseCustomer][7] = prompt("Số lượng đi kèm: ")
-                editCustomer()
+                listCustomer[chooseCustomer].setQuantiy(prompt("Số lượng đi kèm: "))
+                editInfo()
                 break;
             }
             case 9: {
-                arrListCustomers[chooseCustomer][8] = parseInt(prompt("Số ngày thuê: "))
-                editCustomer()
+                listCustomer[chooseCustomer].setRentDays(prompt("Số ngày thuê: "))
+                editInfo()
                 break;
             }
             case 10: {
-                arrListCustomers[chooseCustomer][9] = prompt("Loại dịch vụ: ")
-                editCustomer()
+                listCustomer[chooseCustomer].setServiceType(prompt("Loại dịch vụ: "))
+                editInfo()
                 break;
             }
             case 11: {
-                arrListCustomers[chooseCustomer][10] = prompt("Loại phòng: ")
-                editCustomer()
+                listCustomer[chooseCustomer].setRoomType(prompt("Loại phòng: "))
+                editInfo()
                 break;
             }
             default: {
@@ -205,24 +219,23 @@
         displayMainMenu()
 
     }
-    }
 function displayCusInfo(){
     let temp =' '
     for (let i=0;i<listCustomer.length;i++){
-        temp+= i+"."+listCustomer[i].getName()
+        temp+= i+"."+listCustomer[i].getName()+"\n"
     }
     let chooseCustomer= parseInt(prompt(temp))
-    alert(("Họ và tên: " + arrListCustomers[chooseCustomer].getName() + "\n"
-        + "CMND:" + arrListCustomers[chooseCustomer].getId() + "\n" +
-        "Ngày sinh: " + arrListCustomers[chooseCustomer].getBirthday() + "\n" +
-        "Địa chỉ nhà: " + arrListCustomers[chooseCustomer].getAddress() + "\n" +
-        "Địa chỉ email: " + arrListCustomers[chooseCustomer].getEmail() + "\n" +
-        "Loại khách hàng: " + arrListCustomers[chooseCustomer].getCustomerType() + "\n" +
-        "Giảm giá: " + arrListCustomers[chooseCustomer].getDiscount() + "\n" +
-        "Số lượng: " + arrListCustomers[chooseCustomer].getQuantity() + "\n" +
-        "Số ngày thuê: " + arrListCustomers[chooseCustomer].getRentDays() + '\n' +
-        "Loại dịch vụ: " + arrListCustomers[chooseCustomer].getServiceType() + "\n" +
-        "Loại phòng: " + arrListCustomers[chooseCustomer].getRoomType() + "\n"))
+    alert("Họ và tên: " + listCustomer[chooseCustomer].getName() + "\n"+
+        "CMND:" + listCustomer[chooseCustomer].getId() + "\n" +
+        "Ngày sinh: " + listCustomer[chooseCustomer].getBirthday() + "\n" +
+        "Địa chỉ nhà: " + listCustomer[chooseCustomer].getAddress() + "\n" +
+        "Địa chỉ email: " +listCustomer[chooseCustomer].getEmail() + "\n" +
+        "Loại khách hàng: " + listCustomer[chooseCustomer].getCustomerType() + "\n" +
+        "Giảm giá: " + listCustomer[chooseCustomer].getDiscount() + "\n" +
+        "Số lượng: " + listCustomer[chooseCustomer].getQuantity() + "\n" +
+        "Số ngày thuê: " + listCustomer[chooseCustomer].getRentDays() + '\n' +
+        "Loại dịch vụ: " +listCustomer[chooseCustomer].getServiceType() + "\n" +
+        "Loại phòng: " + listCustomer[chooseCustomer].getRoomType() + "\n")
     displayMainMenu()
 }
     function displayTotalPays() {
@@ -232,6 +245,7 @@ function displayCusInfo(){
         }
         let chooseCustomer = parseInt(prompt(temp))
         alert("Total payment: " + listCustomer[chooseCustomer].totalPay())
+        displayMainMenu()
     }
 
     function addNewCustomer() {
@@ -318,6 +332,7 @@ function displayCusInfo(){
         alert("Customer added")
         displayMainMenu()
 
+    }
     }
 
 
