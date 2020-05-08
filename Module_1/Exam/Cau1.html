@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr=[2,6,9]
+    let sum=0;
+    let count=0;
+    function average(){
+        for (let i=0;i<arr.length;i++){
+            if(arr[i]%3==0){
+                sum += arr[i]
+                count++
+            }
+        }
+        return sum/count
+    }
+    if(arr.length<50){
+        alert(average())
+    }
+
+</script>
+
+</body>
+</html>

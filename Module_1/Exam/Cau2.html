@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a=parseInt(prompt("Nhap vao 1 so nguyen duong: "))
+    let b=0;
+    function check(num){
+        for(let i=1;i<num;i++){
+            if(num%i==0){
+                b+=i
+            }
+        }
+        if(b==num){
+            return true
+        }
+        else{return false}
+    }
+    alert(check(a))
+</script>
+
+</body>
+</html>

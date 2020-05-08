@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cau 2</title>
+</head>
+<body>
+<script>
+    var fruits = ["Apple","Banana","Lemon"];
+    function RemoveFruit() {
+        let a = prompt("Nhap: ");
+        for (i=0;i<fruits.length;i++){
+            if (a === fruits[i]) {
+                fruits.splice(i,1)
+            }
+        }
+         return alert(fruits);
+    }
+    RemoveFruit();
+
+</script>
+
+</body>
+</html>

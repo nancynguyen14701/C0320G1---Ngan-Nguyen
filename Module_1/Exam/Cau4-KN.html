@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cau 4</title>
+</head>
+<body>
+<script>
+     function NhanVien (Ten,SoNgay,LuongCB) {
+        this.ten = Ten;
+        this.songay = SoNgay;
+        this.luongCB = LuongCB;
+        this.tinhluong = function () {
+            return SoNgay*LuongCB;
+        }
+    }
+    var nhanVien = new NhanVien("Nguyen Van A",20, 200000);
+     document.write("Luong cua" + " " + nhanVien.ten + " "+ "la"+ " "+ nhanVien.tinhluong());
+
+</script>
+
+</body>
+</html>

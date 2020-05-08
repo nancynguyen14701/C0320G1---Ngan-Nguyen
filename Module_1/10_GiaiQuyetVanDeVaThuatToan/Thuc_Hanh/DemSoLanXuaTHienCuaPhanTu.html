@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var nums = [];
+    for(let i=0;i<100;++i){
+        nums[i] = Math.floor(Math.random() * 101);
+    }
+    function insertionsort(arr){
+        for (let i=0; i<arr.length; i ++){
+            let key = arr[i]
+            let j = i-1
+            while (j >= 0 && key < arr[j]){
+                arr[j + 1] = arr[j]
+                j -= 1
+                arr[j + 1] = key
+            }
+        }
+    }
+    insertionsort(nums)
+
+    function count(arr, data) {
+        var count = 0;
+        var position = binarySearch(arr,data)
+        console.log("position in count: " + position)
+        if (position > -1) {
+            ++count;
+            console.log(count)
+            for (var i = position-1; i > 0; --i) {
+                if (arr[i] == data) {
+                    ++count;
+                }
+                else {
+                    break;
+                }
+            }
+            for (var i = position+1; i < arr.length; ++i) {
+                if (arr[i] == data) {
+                    ++count;
+                }
+                else {
+                    break;
+                }
+            }
+        }
+        console.log("count" + count)
+        return count;
+    }
+    function binarySearch(arr,data){
+        let low=0;
+        let high=arr.length-1;
+        let mid=0;
+        while (low<=high) {
+            mid = Math.floor((low + high) / 2)
+            if (arr[mid] == data) {
+                return mid;
+            }
+            if (arr[mid] < data) {
+                low = mid + 1;
+            }
+
+            if (arr[mid] > data) {
+                high = mid - 1;
+            }
+        }
+        return -1;
+    }
+    function dispArr(arr) {
+        console.log(arr)
+    }
+    dispArr(nums);
+    document.write("<br/>");
+    var val = parseInt(prompt("Enter a value to count: "));
+    var retVal = count(nums, val);
+    document.write("Found " + retVal + " occurrences of " + val + ".");
+</script>
+</body>
+</html>

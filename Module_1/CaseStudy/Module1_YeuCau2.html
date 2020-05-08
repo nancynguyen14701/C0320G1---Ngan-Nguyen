@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let name = prompt('Hãy nhập tên bạn: ');
+    let idNumber = prompt('Số CMND: ');
+    let birthday = prompt('Ngày tháng năm sinh (date/month/year): ');
+    let address = prompt('Địa chỉ nhà bạn: ');
+    let email = prompt('Cho xin cái email nào: ');
+    let customerType = prompt('Loại khách hàng (Diamond, Platinum, Gold, Silver, Member): ');
+    let discount = parseInt(prompt('Phần trăm giảm giá nếu có: '));
+    let quantity = prompt('Số lượng đi kèm: ');
+    let rentDays = prompt('Số ngày thuê: ');
+    let serviceType = prompt('Loại dịch vụ (Villa, House, Room): ');
+    let roomType = prompt('Loại phòng thuê (Vip, Business,  Normal): ');
+    while (true) {
+    let choose = prompt("1. Hiển thị thông tin khách hàng " + "\n" +
+        "2. Chỉnh sửa thông tin khách hàng " + "\n" +
+        "3. Hiện thị tổng giá sau khi được giảm giá " + "\n")
+
+    function showInfo() {
+        alert("Họ và tên: " + name + "\n"
+            + "CMND:" + idNumber + "\n" + "Ngày sinh: " + birthday + "\n" + "Địa chỉ nhà: " + address + "\n" +
+            "Địa chỉ email: " + email + "\n" +
+            "Loại khách hàng: " + customerType + "\n" +
+            "Giảm giá: " + discount + "\n" +
+            "Số lượng: " + quantity + "\n" +
+            "Số ngày thuê: " + rentDays + '\n' +
+            "Loại dịch vụ: " + serviceType + "\n" +
+            "Loại phòng: " + roomType + "\n")
+    }
+
+
+        switch (choose) {
+            case "1": {
+                showInfo()
+                break;
+            }
+
+            case "2": {
+                let infoEdit = parseInt(prompt("1.Họ và tên: " + name + "\n"
+                    + "2.CMND" + idNumber + "\n" +
+                    "3.Ngày sinh: " + birthday + "\n" +
+                    "4.Địa chỉ nhà: " + address + "\n" +
+                    "5.Địa chỉ email: " + email + "\n" +
+                    "6.Loại khách hàng: " + customerType + "\n" +
+                    "7.Giảm giá: " + discount + "\n" +
+                    "8.Số lượng: " + quantity + "\n" +
+                    "9.Số ngày thuê: " + rentDays + '\n' +
+                    "10.Loại dịch vụ: " + serviceType + "\n" +
+                    "11.Loại phòng: " + roomType + "\n"))
+                switch (infoEdit) {
+                    case 1: {
+                        name = prompt("Nhập tên muốn sửa: ")
+                        showInfo()
+                        break;
+                    }
+
+                    case 2: {
+                        idNumber = prompt("Nhập CMND: ")
+                        showInfo()
+                        break;
+                    }
+                    case 3: {
+                        birthday = prompt("Nhập lại ngày sinh: ")
+                        showInfo()
+                        break;
+                    }
+                    case 4: {
+                        address = prompt("Nhập địa chỉ nhà: ")
+                        showInfo()
+                        break;
+                    }
+                    case 5: {
+                        email = prompt("Nhập lại email: ")
+                        showInfo()
+                        break;
+                    }
+                    case 6: {
+                        customerType = prompt("Nhập loại khách hàng: ")
+                        showInfo()
+                        break;
+                    }
+                    case 7: {
+                        discount = prompt("Giảm giá: ")
+                        showInfo()
+                        break;
+                    }
+                    case 8: {
+                        quantity = prompt("Số lượng đi kèm: ")
+                        showInfo()
+                        break;
+                    }
+                    case 9: {
+                        rentDays = parseInt(prompt("Số ngày thuê: "))
+                        showInfo()
+                        break;
+                    }
+                    case 10: {
+                        serviceType = prompt("Loại dịch vụ: ")
+                        showInfo()
+                        break;
+                    }
+                    case 11: {
+                        roomType = prompt("Loại phòng: ")
+                        showInfo()
+                        break;
+                    }
+                    default: {
+                        alert("Failed")
+                    }
+
+                }
+                break;
+            }
+
+            case "3": {
+                let money = 0;
+                let temp = 0;
+                if (serviceType === "Villa") {
+                    money = 500
+                } else if (serviceType === "Home") {
+                    money = 300
+                } else if (serviceType === "Room") {
+                    money = 100;
+                }
+                if (address === "Da Nang") {
+                    temp += 20;
+                } else if (address === "Hue") {
+                    temp += 10;
+                } else if (address === "Quang Nam") {
+                    temp += 5;
+                }
+                if (rentDays > 7) {
+                    temp += 30
+                } else if (rentDays > 4 && rentDays < 8) {
+                    temp += 20
+                } else if (rentDays > 1 && rentDays < 5) {
+                    temp += 10
+                }
+                if (customerType === "Diamond") {
+                    temp += 15
+                } else if (customerType === "Platinum") {
+                    temp += 10
+                } else if (customerType === "Gold") {
+                    temp += 5
+                } else if (customerType === "Silver") {
+                    temp += 2
+                } else if (customerType === "Member") {
+                    temp += 0
+                }
+                alert("Total payment: " + (money * rentDays - temp))
+                break;
+            }
+            default: {
+                alert("Bạn hãy chọn các chức năng có trong trình đơn")
+            }
+
+
+        }
+    }
+
+
+</script>
+
+</body>
+</html>
