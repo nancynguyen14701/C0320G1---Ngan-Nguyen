@@ -7,10 +7,10 @@ public class FanRun {
         firstFan.setOn(true);
         firstFan.setRadius(10.0);
         firstFan.setColor("yellow");
-        System.out.println("Fan 1: " + firstFan.toString());
+        System.out.println("Fan 1: " + firstFan);
         Fan secondFan = new Fan();
         secondFan.setSpeed(Fan.MEDIUM);
         secondFan.setColor("blue");
-        System.out.println("Fan 2: " + secondFan.toString());
+        System.out.println("Fan 2: " + secondFan);
     }
 }
