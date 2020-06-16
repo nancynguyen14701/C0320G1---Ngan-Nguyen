@@ -1,0 +1,3 @@
+id, serviceCode, nameService, typeRent, area, rentalCosts, maxNumberOfPeople, roomStandard, convenientDescription, poolArea, numberOfFloors
+091a656de8994ff887015cf0856566da,SVVL-2323,Add,Add,8978.0,3,234.0,food,9843.0,Ass,2.0
+07f926b20bb44d33b48cb370666e4383,SVVL-2344,Kfe,Ud,343.0,4,3434.0,food,343.0,Add,2.0

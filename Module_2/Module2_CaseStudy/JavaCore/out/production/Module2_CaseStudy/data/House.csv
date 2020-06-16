@@ -1,0 +1,3 @@
+id, nameService, typeRent, area, rentalCosts, maxNumberOfPeople, roomStandard,convenientDescription, numberOfFloors
+9fb505d92efb431eaec17654837eecd2,SVHO-3433,Add,Sw,343.0,2,232.0,car,As,2.0
+f0ea42771ce446478478a6f02d6aa402,SVHO-8343,Edf,Ef,443.0,1,232.0,car,Adf,2.0
