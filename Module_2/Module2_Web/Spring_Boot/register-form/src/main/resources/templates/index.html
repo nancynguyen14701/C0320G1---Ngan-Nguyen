@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register Form</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1>Register Form</h1>
+    <form class="form-horizontal" action="/register" method="post" th:object="${user}">
+        <div class="form-group">
+            <label th:for="firstName">First Name</label>
+            <input th:field="*{firstName}"/>
+
+            <div  th:if="${#fields.hasErrors('firstName')}" class="alert alert-primary" role="alert">
+                <span th:errors="*{firstName}" class="error"></span>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label th:for="lastName">Last Name</label>
+            <input class="form-control" th:field="*{lastName}"/>
+            <div  th:if="${#fields.hasErrors('lastName')}" class="alert alert-primary" role="alert">
+                <span th:errors="*{lastName}" class="error"></span>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label th:for="age">Age</label>
+            <input class="form-control" th:field="*{age}"/>
+            <div  th:if="${#fields.hasErrors('age')}" class="alert alert-primary" role="alert">
+                <span th:errors="*{age}" class="error"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label th:for="phoneNumber">Phone Number</label>
+            <input class="form-control" th:field="*{phoneNumber}"/>
+            <div  th:if="${#fields.hasErrors('phoneNumber')}" class="alert alert-primary" role="alert">
+                    <span th:errors="*{phoneNumber}" class="error"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label th:for="email">Email </label>
+            <input class="form-control" th:field="*{email}"/>
+            <div  th:if="${#fields.hasErrors('email')}" class="alert alert-primary" role="alert">
+                <span th:errors="*{email}" class="error"></span>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-danger">Submit</button>
+
+    </form>
+</div>
+</body>
+</html>

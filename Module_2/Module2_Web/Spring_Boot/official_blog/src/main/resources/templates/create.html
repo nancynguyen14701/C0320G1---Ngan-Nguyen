@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="index :: header">
+    <meta charset="UTF-8">
+    <title>Create Form</title>
+</head>
+<body>
+<div class="container">
+    <button class="btn btn-secondary"><a class="text-danger" th:href="@{/my_blog/}">Get Home</a></button>
+    <h1>Create A New Post </h1>
+    <form th:action="@{/my_blog/create_post}" method="post" th:object="${post}" >
+        <input type="hidden" th:field="*{id}">
+        <div class="form-group">
+            <label class="text-monospace">Title: </label>
+            <input class="form-control" th:field="*{title}"/>
+        </div>
+        <div class="form-group">
+            <label class="d">Content: </label><br>
+            <textarea cols="80" rows="10" th:field="*{body}"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Date created: </label>
+            <input type="date" th:field="*{dateCreated}"/>
+        </div>
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+</div>
+
+</body>
+</html>

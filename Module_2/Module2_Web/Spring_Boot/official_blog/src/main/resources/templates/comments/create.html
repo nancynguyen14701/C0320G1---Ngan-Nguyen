@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="comments/list :: header">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <h1 class="text-danger">Write Comment</h1>
+    <form action="/write_comment" method="post" class="form-group" th:object="${comment}">
+        <div>
+            <label class="text-primary">User: </label><br>
+            <input type="text" th:field="*{user}">
+        </div><br>
+        <div>
+            <label class="text-primary">Content: </label><br>
+            <textarea cols="80" rows="10" type="text" th:field="*{content}"></textarea>
+        </div>
+        <button th:type="submit" class="btn btn-danger">Comment</button>
+    </form>
+</div>
+</body>
+</html>

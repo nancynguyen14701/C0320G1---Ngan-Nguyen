@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="header">
+    <title>Form</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1 class="text-warning">Welcome to my blog</h1><br>
+    <th:block th:if="${message}">
+        <p class="alert alert-primary" th:text="${message}"></p>
+    </th:block>
+    <form th:action="@{/my_blog/create_post}">
+    <button  class="btn btn-secondary" th:method="get" value="New Post">New Post</button>
+    </form><br>
+    <a th:href="@{/my_blog/page/1}" class="btn btn-primary">Show all Pages</a>
+
+</div>
+</body>
+</html>

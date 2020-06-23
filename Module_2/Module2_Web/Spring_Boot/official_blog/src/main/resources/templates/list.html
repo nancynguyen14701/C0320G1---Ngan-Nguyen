@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="index :: header" >
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <form th:action="@{/my_blog/}" method="get">
+        <button th:type="submit" class="btn btn-warning">Get Home</button>
+    </form><br>
+    <h1 class="text-primary">All Posts</h1>
+    <div>
+        <form action="/my_blog/search" method="post">
+            Search: <input th:type="text" name="search" th:value="${search}" placeholder="Title of the blog">
+            <button class="btn btn-primary" th:type="submit">Search</button>
+        </form>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th><a th:href="@{'/my_blog/page/' + ${posts.number+1} + '?sortField=title'}">Title</a></th>
+            <th><a th:href="@{'/my_blog/page/' + ${posts.number+1} + '?sortField=body'}">Content</a></th>
+            <th><a th:href="@{'/my_blog/page/' + ${posts.number+1} + '?sortField=dateCreated'}">Date Created</a></th>
+            <th>Comments</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="post : ${posts}">
+<!--            <input th:type="hidden" th:field="${post.id}">-->
+            <tr>
+                <td th:type="text" th:text="${post.title}"></td>
+                <td th:type="text" th:text="${post.body}"></td>
+                <td th:type="text" th:text="${post.dateCreated}"></td>
+                <td> <a th:href="@{/view_comments}">View Comments</a></td>
+                <td>
+                    <a class="text-primary" th:href="@{/my_blog/view_post/__${post.id}__}" >View |</a>
+                    <a class="text-body" th:href="@{/my_blog/edit_post/__${post.id}__}">Edit |</a>
+                    <a class="text-danger" th:href="@{/my_blog/delete_post/__${post.id}__}">Delete</a>
+                </td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+    <div>
+        Total items: [[${totalItems}]] - Page [[${posts.number+1}]] of [[${totalPages}]] -
+        &nbsp;&nbsp;
+        <a th:href="@{1}">First</a>&nbsp;&nbsp
+        <a th:href="@{__${posts.number }__}" th:if="${posts.hasPrevious()}">Previous</a>&nbsp;
+        <span th:each="i:${#numbers.sequence(1,totalPages )}" >
+            <a th:href="@{__${i}__}">[[${i}]]</a>  &nbsp;&nbsp;
+        </span> &nbsp;
+        <a th:href="@{__${posts.number + 2}__}" th:if="${posts.hasNext()}">Next</a>&nbsp;&nbsp;
+        <a th:href="@{__${totalPages}__}">Last</a>
+    </div>
+</div>
+
+
+</body>
+</html>

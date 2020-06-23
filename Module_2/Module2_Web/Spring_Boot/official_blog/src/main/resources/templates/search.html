@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="index :: header">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <h1>Search List</h1>
+    <div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Date Created</th>
+                <th>Comments</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="post : ${posts}">
+                <!--            <input th:type="hidden" th:field="${post.id}">-->
+                <tr>
+                    <td th:type="text" th:text="${post.title}"></td>
+                    <td th:type="text" th:text="${post.body}"></td>
+                    <td th:type="text" th:text="${post.dateCreated}"></td>
+                    <td> <a th:href="@{/view_comments}">View Comments</a></td>
+                    <td>
+                        <a class="text-primary" th:href="@{/my_blog/view_post/__${post.id}__}" >View |</a>
+                        <a class="text-body" th:href="@{/my_blog/edit_post/__${post.id}__}">Edit |</a>
+                        <a class="text-danger" th:href="@{/my_blog/delete_post/__${post.id}__}">Delete</a>
+                    </td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

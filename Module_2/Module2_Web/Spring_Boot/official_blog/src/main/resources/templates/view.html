@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="index :: header">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <h1 class="text-muted">View Post</h1>
+    <form th:object="${post}" class="form-group">
+        <label  class="text-info">Title: </label><br>
+        <textarea class="form-control" th:field="*{title}"></textarea><br>
+        <label class="text-info">Content: </label><br>
+        <textarea class="form-control" th:field="*{body}"></textarea><br>
+        <label class="text-info">Date Created</label><br>
+        <textarea class="form-control" th:field= "*{dateCreated}"></textarea>
+    </form>
+    <form action="/my_blog/">
+        <button type="submit" class="btn btn-primary">Get Home</button>
+    </form><br>
+    <form action="/write_comment">
+        <button type="submit" class="btn btn-warning">Add a comment</button>
+    </form>
+</div>
+</body>
+</html>
