@@ -8,8 +8,11 @@ import java.util.List;
 public class CustomerType {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @Column(name="customer_type_id")
     private Long id;
+
     private String name;
+
     @OneToMany(targetEntity = Customer.class)
     private List<Customer> customerList;
 

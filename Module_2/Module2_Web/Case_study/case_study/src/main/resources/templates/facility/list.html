@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>Form</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1 class="text-primary">Facility List</h1>
+    <th:block th:if="${message}">
+        <p class="alert alert-primary" th:text="${message}"></p>
+    </th:block>
+    <table class="table table-hover">
+        <thead class="thead-dark">
+        <tr>
+            <th>No.</th>
+            <th>Code</th>
+            <th>Price</th>
+            <th>Area</th>
+            <th>Max Container</th>
+            <th>Facility Type</th>
+             <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="facility,num :${facilityList}">
+            <tr>
+                <td th:text="${num.count}"></td>
+                <td th:text="${facility.code}"></td>
+                <td th:text="${facility.price}"></td>
+                <td th:text="${facility.area}"></td>
+                <td th:text="${facility.maxNumberOfPeople}"></td>
+                <td th:text="${facility.facilityType.name}"></td>
+                <td>
+                    <a sec:authorize="hasRole('ROLE_MEMBER')" class="text-secondary" th:href="@{/facility/booking/__${facility.id}__}">Booking</a>
+                    <a sec:authorize="hasRole('ROLE_ADMIN')" class= "text-primary" th:href="@{/edit/__${facility.id}__}">Edit | </a>
+                    <a sec:authorize="hasRole('ROLE_ADMIN')" class="text-danger" th:href="@{/delete/__${facility.id}__}">Delete</a>
+                </td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

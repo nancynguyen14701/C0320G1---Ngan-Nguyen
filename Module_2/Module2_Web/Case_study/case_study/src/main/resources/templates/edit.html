@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Form</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <form th:method="post" th:object="${customer}" th:action="@{/edit}">
+            <input type="hidden" th:field="*{id}">
+            <div class="row">
+                <div class="form-group col-md-4">
+                    Name <input class="form-control" th:field="*{name}">
+                </div>
+                <div class="form-group col-md-4" >
+                    Customer code <input class="form-control" th:field="*{code}">
+                </div>
+                <div class="form-group col-md-4">
+                    Phone number <input class="form-control" th:field="*{phoneNumber}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-5">
+                    Birthday <input type="date" class="form-control" th:field="*{birthday}">
+                </div>
+                <div class="form-group col-md-3" >
+                    Customer type <select class="form-control" th:field="*{customerType.id}">
+                    <th:block th:each="customerType:${customerTypeList}">
+                        <option th:value="${customerType.id}" th:text="${customerType.name}"></option>
+                    </th:block>
+                </select>
+                </div>
+                <div class="form-group col-md-4">
+                    Email <input type="email" class="form-control" th:field="*{email}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    ID Number <input class="form-control" th:field="*{idNumber}">
+                </div>
+                <div class="form-group col-md-6">
+                    Address <input class="form-control" th:field="*{address}">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-danger">Edit</button>
+        </form>
+    </div>
+
+
+</body>
+</html>

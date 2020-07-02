@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface CustomerTypeService {
     List<CustomerType> getAllCustomerTypes();
+    CustomerType findCustomerTypeById(Long id);
 }

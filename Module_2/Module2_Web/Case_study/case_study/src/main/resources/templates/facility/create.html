@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Form</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>
+<div class="container">
+    <h1 class="text-primary">Add New Facility</h1>
+    <form th:method="post" th:object="${facility}" th:action="@{/facility/add}">
+        <input type="hidden" th:field="*{id}">
+        <div class="row">
+            <div class="form-group col-md-6">
+                Service code <input class="form-control" th:field="*{code}">
+                <th:block th:if="${#fields.hasErrors('code')}">
+                    <div class="alert alert-primary" th:errors="*{code}"></div>
+                </th:block>
+            </div>
+            <div class="form-group col-md-6" >
+                Price <input class="form-control" th:field="*{price}">
+                <th:block th:if="${#fields.hasErrors('price')}">
+                    <div class="alert alert-primary" th:errors="*{price}"></div>
+                </th:block>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-6" >
+                Facility type <select class="form-control" th:field="*{facilityType.id}">
+                <th:block th:each="facilityType:${facilityTypeList}">
+                    <option th:value="${facilityType.id}" th:text="${facilityType.name}"></option>
+                </th:block>
+            </select>
+                <th:block th:if="${#fields.hasErrors('facilityType')}">
+                    <div class="alert alert-primary" th:errors="*{facilityType}"></div>
+                </th:block>
+            </div>
+            <div class="form-group col-md-6">
+                Area <input  class="form-control" th:field="*{area}">
+                <th:block th:if="${#fields.hasErrors('area')}">
+                    <div class="alert alert-primary" th:errors="*{area}"></div>
+                </th:block>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-6">
+                Floor <input  class="form-control" th:field="*{floor}">
+                <th:block th:if="${#fields.hasErrors('floor')}">
+                    <div class="alert alert-primary" th:errors="*{floor}"></div>
+                </th:block>
+            </div>
+            <div class="form-group col-md-6">
+                Max number of people <input  class="form-control" th:field="*{maxNumberOfPeople}">
+                <th:block th:if="${#fields.hasErrors('maxNumberOfPeople')}">
+                    <div class="alert alert-primary" th:errors="*{maxNumberOfPeople}"></div>
+                </th:block>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-danger">Add</button>
+    </form>
+</div>
+</body>
+</html>

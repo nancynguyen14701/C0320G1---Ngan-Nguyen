@@ -1,19 +1,24 @@
 package codegym.official_blog.entities;
 
+import org.springframework.validation.Errors;
+import org.springframework.validation.ValidationUtils;
+import org.springframework.validation.Validator;
+
 import javax.persistence.*;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 
 @Entity
 @Table (name = "post")
-public class Post {
+public class Post implements Validator {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String body;
-    private Date dateCreated;
+    private LocalDate dateCreated;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "post")
     private List<Comment> comments;
 
@@ -41,14 +46,26 @@ public class Post {
         this.body = body;
     }
 
-    public Date getDateCreated() {
+    public LocalDate getDateCreated() {
         return dateCreated;
     }
 
-    public void setDateCreated(Date dateCreated) {
+    public void setDateCreated(LocalDate dateCreated) {
         this.dateCreated = dateCreated;
     }
 
     public Post() {
+    }
+
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return false;
+    }
+
+    @Override
+    public void validate(Object target, Errors errors) {
+        Post post= (Post)target;
+        ValidationUtils.rejectIfEmpty(errors,"dateCreated", "dateCreated.empty");
+
     }
 }

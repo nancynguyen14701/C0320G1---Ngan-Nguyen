@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><head>
+    <title>Form</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1 class="text-primary">Customer List</h1>
+
+    <table class="table table-hover">
+        <thead class="thead-dark">
+        <tr>
+            <th>No.</th>
+            <th>Name</th>
+            <th>Code</th>
+            <th>Birthday</th>
+            <th>Email</th>
+            <th>IDNumber</th>
+            <th>Address</th>
+            <th>Customer Type</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="customer,num:${customerList}">
+        <tr>
+            <td th:text="${num.count}"></td>
+            <td th:text="${customer.name}"></td>
+            <td th:text="${customer.code}"></td>
+            <td th:text="${#dates.format(customer.birthday, 'dd/MM/yyyy')}"></td>
+            <td th:text="${customer.email}"></td>
+            <td th:text="${customer.idNumber}"></td>
+            <td th:text="${customer.address}"></td>
+            <td th:text="${customer.customerType.name}"></td>
+
+            <td>
+                <a class= "text-primary" th:href="@{/edit/__${customer.id}__}">Edit | </a>
+                <a class="text-danger" th:href="@{/delete/__${customer.id}__}">Delete</a>
+            </td>
+        </tr>
+        </th:block>
+        </tbody>
+    </table>
+    <nav>
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" th:href="@{__${customerList.number}__}" th:if="${customerList.hasPrevious()}">Previous</a></li>
+            <th:block th:each="i:${#numbers.sequence(1, customerList.getTotalPages())}">
+            <li class="page-item"><a class="page-link" th:href="@{__${i}__}">[[${i}]]</a></li>
+            </th:block>
+            <li class="page-item"><a class="page-link" th:href="${__${customerList.number + 2}__}" th:if="${customerList.hasNext()}">Next</a></li>
+        </ul>
+    </nav>
+    <form class="form-group" th:method="post" th:action="@{/search}">
+        <div class="row justify-content-center">
+            <input  type="text" name="name" class="form-group col-md-2" placeholder="name">
+            <input type="text" name="email" class="form-group col-md-2" placeholder="email">
+            <input type="text" name="address" class="form-group col-md-2" placeholder="address">
+            <button type="submit" class="btn btn-primary col-sm-2">Search</button>
+        </div>
+    </form><br>
+</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Booking Form</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style type="text/css">
+        body{
+            background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('https://www.itl.cat/pngfile/big/4-48784_full-hd-1080p-nature-wallpapers-desktop-backgrounds-ocean.jpg');
+        }
+        .wrapper{
+            margin: 80px;
+        }
+        .form-booking{
+            max-width: 380px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 15px 40px 50px;
+            border: 1px solid #e5e5e5;
+            border-radius: 10px;
+        }
+        .form-booking .form-booking-heading, .form-booking{
+            margin-bottom: 30px;
+        }
+        .form-booking input[type='date'], .form-booking input[type='date']{
+            margin-bottom: 20px;
+        }
+        .form-booking .form-control{
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+<!--    <th:block th:if="${message}">-->
+<!--        <p class="alert alert-primary" th:text="${message}"></p>-->
+<!--    </th:block>-->
+    <form class="form-booking" th:action="@{/contract/booking}" th:method="post" th:object="${booking}">
+        <h2 class="form-booking-heading text-center text-primary">Booking Form</h2>
+        <input type="hidden" th:field="*{serviceCode}" th:value="${facility.code}">
+        Service code <input type="text" class="form-control" th:value="${facility.code}" th:field="${facility.code}" readonly>
+        Start Date <input type="date" class="form-control" th:field="*{startDate}" placeholder="Start Date">
+        End Date <input type="date" class="form-control" th:field="*{endDate}" placeholder="End Date">
+        <b>Attach Services</b> <br>
+        <th:block th:each="attachService:${attachFacilityList}" >
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" name="attachFacilityList" th:value="${attachService.id}" th:id="${attachService.name}">
+            <label class="custom-control-label" th:for="${attachService.name}" >[[${attachService.name}]]</label><br>
+        </div>
+        </th:block>
+        <br><button type="submit" class="btn btn-lg btn-primary btn-block">Booking</button>
+    </form>
+</div>
+</body>
+</html>

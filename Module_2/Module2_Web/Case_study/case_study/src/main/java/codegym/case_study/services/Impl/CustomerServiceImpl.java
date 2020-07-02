@@ -4,6 +4,9 @@ import codegym.case_study.entities.Customer;
 import codegym.case_study.repositories.CustomerRepository;
 import codegym.case_study.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,8 +16,9 @@ public class CustomerServiceImpl implements CustomerService {
     CustomerRepository customerRepository;
     @Override
 
-    public List<Customer> getAllCustomers() {
-       return customerRepository.findAll();
+    public Page<Customer> getAllCustomers(int pageNumber) {
+        Pageable pageable= PageRequest.of(pageNumber,5);
+       return customerRepository.findAll(pageable);
     }
 
     @Override
@@ -35,5 +39,10 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public void delete(Long id) {
         customerRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Customer> search(String name, String email, String address) {
+        return customerRepository.findAllByNameContainingAndEmailContainingAndAddressContaining(name, email, address);
     }
 }

@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Century Gothic", serif;
+}
+
+header{
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+ul{
+    float: right;
+    list-style-type: none;
+    margin-top: 25px;
+    width: 900px;
+
+}
+ul li{
+    display: inline-block;
+
+}
+ul li a{
+    text-decoration: none;
+    color: #ffffff;
+    padding: 10px 40px;
+    transition: 0.6s ease;
+}
+ul li a:hover{
+    background-color: #ffffff;
+    color: #000000;
+}
+.logo img{
+    float:left;
+    width: 400px;
+    height:auto;
+    margin-top: 10px;
+}
+.main {
+    max-width: 1500px;
+}
+.title{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.title h1{
+    color: #ffffff;
+    font-size: 70px;
+}
+.workspace-button{
+    background-color: transparent;
+    color: #ffffff;
+    padding: 10px 40px;
+    width: 150px;
+    border: 1px solid #ffffff;
+
+}
+.workspace{
+    position: relative;
+    display: inline-block;
+}
+.dropdown-workspace {
+    display: none;
+    position: absolute;
+    background-color: transparent;
+    min-width: 200px;
+    height: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+
+}
+
+.dropdown-workspace a:hover{
+    display: block;
+    color: #000000;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+.workspace:hover .dropdown-workspace{
+    display: block;
+}
+.workspace:hover .workspace-button{
+    background-color: transparent;
+}

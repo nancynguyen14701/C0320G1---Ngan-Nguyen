@@ -15,4 +15,9 @@ public class CustomerTypeServiceImpl implements CustomerTypeService {
     public List<CustomerType> getAllCustomerTypes() {
         return customerTypeRepository.findAll();
     }
+
+    @Override
+    public CustomerType findCustomerTypeById(Long id) {
+        return customerTypeRepository.findById(id).orElse(null);
+    }
 }
