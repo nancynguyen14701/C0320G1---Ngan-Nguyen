@@ -1,0 +1,26 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+nav{
+    width: 100%;
+    background-color: plum;
+    height: 100px;
+}
+ul{
+
+}
+ul li{
+    float: left;
+    list-style: none;
+    display: inline-block;
+    line-height: 80px;
+    
+
+    
+}
+ul li a{
+    text-decoration: none;
+    padding: 10px;
+}
