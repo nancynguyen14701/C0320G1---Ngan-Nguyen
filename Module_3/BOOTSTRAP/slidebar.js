@@ -25,5 +25,23 @@
 // }
 
 $(document).ready(()=>{
-    $('.next').click
+    var current = 1;
+    var next = 2;
+    $("#slider>img#1").fadeIn(200);
+    $('.next').click(()=>{   
+        count = $("#slider>img").length;  
+        console.log(count);
+        console.log(next);      
+        if (next>=count){
+            current=1;
+            next=2;
+            console.log("hello");
+        };                 
+        $("#slider>img#"+current).fadeOut(100);
+        $("#slider>img#"+next).fadeIn(200);        
+        current = next;
+        next +=1;
+        console.log(next);
+        
+    })
 })

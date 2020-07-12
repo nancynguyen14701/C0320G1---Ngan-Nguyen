@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music player by Hung Nguyen</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script >
+        let songUrl = new Array();
+        let titles = new Array();
+        let bgImages = new Array();
+        let images = new Array();
+    $.ajax({
+    type: "GET",
+    url: "data.xml",
+    dataType: "xml",
+    success: function xmlParser(xml){        
+        $(xml).find("track").each(function(){
+        let url = $(this).find("location").text();
+        songUrl.push(url)
+        let info =  $(this).find("title").text() + '-' + $(this).find("creator").text();
+        titles.push(info);
+        let backgroundImg= $(this).find("coverimage").text();
+        bgImages.push(backgroundImg)
+        let image=$(this).find("avatar").text();
+        images.push(image);
+    }) 
+      
+}
+})
+    </script>
+    <div id="back-ground">
+        <img src="">
+    </div>
+    <div id="main">
+        <div id="image">
+            <img src="">
+        </div>
+        <div id = "player">
+            <div id="songTitle">Demo</div>
+            <div id="buttons">
+                <button id="pre" onclick="pre()">
+                    <img src="Pre.png">
+                </button>
+                <button id="play" onclick="playOrPauseSong()">
+                    <img src="Pause.png">
+                </button>
+                <button id="next" onclick="next()">
+                    <img src="Next.png">
+                </button>
+            </div>
+
+            <div id="seek-bar">
+                <div id="fill"></div>
+                <div id="handle"></div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        // let songs=["AnhThanhNien-HuyR.mp3","MotCuLua-BichPhuong.mp3","EmBoHutThuocChua-BichPhuong.mp3"];
+        // let posters=["Poster1.jpg","Poster2.jpg","Poster3.jpg"];
+        let posters=["Poster1.jpg","Poster2.jpg","Poster3.jpg"];
+
+        let songTiltle = document.getElementById("songTitle");
+        let fillBar = document.getElementById("fill");
+        let song = new Audio();
+        let currentSong=0;
+        window.onload = playSong;
+        function playSong(){
+            song.src=songUrl[currentSong];
+            songTiltle.innerHTML=titles[currentSong];
+            song.play();
+            $("#back-ground img").attr("src",bgImages[currentSong]);
+            $("#image img").attr("src",images[currentSong]);
+        }
+        function playOrPauseSong(){
+            if(song.paused){
+                song.play();
+                $("#play img").attr("src","Pause.png");
+            }
+            else{
+                song.pause();
+                $("#play img").attr("src","Play.png");
+            }
+        }
+        song.addEventListener("timeupdate",function(){
+            let position = song.currentTime/song.duration;
+            fillBar.style.width=position*100+'%';
+        })
+        function next(){
+            currentSong++;
+            if(currentSong>(songUrl.length-1)){
+                currentSong=0;
+            }
+            playSong();
+            $("#play img").attr("src","Pause.png");
+            $("#image img").attr("src",images[currentSong]);
+            $("#back-ground img").attr("src",bgImages[currentSong]);
+        }
+        function pre(){
+            currentSong--;
+            if(currentSong<0){
+                currentSong=songUrl.length-1;
+            }
+            playSong();
+            $("#play img").attr("src","Pause.png");
+            $("#image img").attr("src",images[currentSong]);
+            $("#back-ground img").attr("src",bgImages[currentSong]);
+        }
+       
+    </script>
+</body>
+</html>
