@@ -1,0 +1,64 @@
+
+<div class="wrapper mx-5 my-4">
+
+<div class="row justify-content-between ">
+    <h2 class="text-dark">Employees List</h2>
+    <div class="d-flex">
+        <input class="rounded mx-1 border border-primary" type="text" style="width: 400px;" placeholder="Enter employee's name ">        
+       <button class="btn btn-outline-primary">search</button>
+    </div>    
+</div>
+<div class="row my-2">
+    <button class="btn btn-danger"><a routerLink="/employee-add" style="text-decoration: none; color:white">Add new employee</a></button>    
+</div>
+<div class="row mt-4">
+    <table class="table table-bordered">
+        <thead class="thead-dark text-center">
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Position</th>            
+            <th>Department</th>            
+            <th>Salary</th>
+            <th>Phone number</th>
+            <th>Email</th>         
+            <th>Action</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="text-center">
+            <td>1</td>
+            <td>Doe</td>
+            <td>Manager</td>
+            <td>Sales</td>
+            <td>3000</td>
+            <td>0988099890</td>
+            <td>dkd@gm.com</td>
+            <td>
+              <a class="mx-4" href="#"><mat-icon color = "primary">visibility</mat-icon></a>              
+                <a href="#" class="mr-4"><mat-icon color = "accent">settings</mat-icon></a>
+                <a href="#" class="mr-4"><mat-icon color = "warn">delete</mat-icon></a>
+                
+            </td>
+          </tr>
+          <tr class="text-center">
+            <td>2</td>
+            <td>Marry</td>
+            <td>Receptionist</td>
+            <td>Administrative</td>
+            <td>1000</td>
+            <td>0988099890</td>
+            <td>ggkd@gm.com</td>
+            <td>
+              <a class="mx-4" href="#"><mat-icon color = "primary">visibility</mat-icon></a>              
+              <a href="#" class="mr-4"><mat-icon color = "accent">settings</mat-icon></a>
+              <a href="#" class="mr-4"><mat-icon color = "warn">delete</mat-icon></a>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+</div>
+
+</div>
