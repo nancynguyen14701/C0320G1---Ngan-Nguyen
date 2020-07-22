@@ -1,0 +1,77 @@
+<div class="wrapper mx-2 my-3">
+    <h3 class="text-center text-danger">Edit Employee Form</h3>
+    
+    <form class="w-75 mx-auto mt-3"  [formGroup]="editEmployeeForm">
+        <div class="row">
+    
+            <div class="form-group col-md-6">
+               Name <input class="form-control" formControlName="name">
+               <p *ngIf="editEmployeeForm.get('name').invalid && editEmployeeForm.get('name').touched"><small class="text-danger">Please fill in this field</small></p>            
+            </div>
+            
+            <div class="form-group col-md-6" >
+                Position <input class="form-control" formControlName="position">
+                <p *ngIf="editEmployeeForm.get('position').invalid && editEmployeeForm.get('position').touched"><small class="text-danger">Please fill in this field</small></p>
+            </div>       
+    
+        </div>
+        <div class="row">
+    
+            <div class="form-group col-md-6">
+               Academic level <input class="form-control" formControlName="academicLevel">
+               <p *ngIf="editEmployeeForm.get('academicLevel').invalid && editEmployeeForm.get('academicLevel').touched"><small class="text-danger">Please fill in this field</small></p>            
+            </div>
+    
+            <div class="form-group col-md-6" >
+                Department <input class="form-control" formControlName="department">
+                <p *ngIf="editEmployeeForm.get('department').invalid && editEmployeeForm.get('department').touched"><small class="text-danger">Please fill in this field</small></p>
+            </div>       
+    
+        </div>
+    
+        <div class="row">        
+    
+            <div class="form-group col-md-6" >
+                Phone number <input class="form-control" formControlName="phoneNumber">
+                <p *ngIf="editEmployeeForm.get('phoneNumber').invalid && editEmployeeForm.get('phoneNumber').touched"><small class="text-danger">Please fill in this field</small></p>
+            </div>       
+    
+            <div class="form-group col-6">
+                Email <input class="form-control" type="email" formControlName="email">
+                <p *ngIf="editEmployeeForm.get('email').errors?.required && editEmployeeForm.get('email').touched"><small class="text-danger">Please fill in this field</small></p> 
+                <p *ngIf="editEmployeeForm.get('email').errors?.email && editEmployeeForm.get('email').touched"><small class="text-danger">Invalid email format!</small></p>           
+             </div>
+    
+        </div>
+    
+        <div class="row">       
+    
+            <div class="form-group col-md-4" >
+                Salary <input class="form-control" formControlName="salary">
+                <p *ngIf="editEmployeeForm.get('salary').invalid && editEmployeeForm.get('salary').touched"><small class="text-danger">Please fill in this field</small></p>
+            </div>       
+    
+            <div class="form-group col-md-4">
+                Address <input class="form-control" type="text" formControlName="address">
+                <p *ngIf="editEmployeeForm.get('address').invalid && editEmployeeForm.get('address').touched"><small class="text-danger">Please fill in this field</small></p>            
+             </div>
+    
+             <div class="form-group col-md-4">
+                Birthday <mat-form-field appearance="fill">
+                 <mat-label>Choose a date</mat-label>
+                 <input [max]="maxDate" matInput [matDatepicker]="picker" formControlName="birthday" 
+                 value="{{editEmployeeForm.get('birthday').value | date :  'yyyy-MM-dd\'T\'HH:mm:ss.SSS\'Z\''}}">
+                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                 <mat-datepicker #picker></mat-datepicker>
+               </mat-form-field>
+               
+                <p *ngIf="editEmployeeForm.get('birthday').invalid && editEmployeeForm.get('birthday').touched"><small class="text-danger">Please fill in this field</small></p>            
+             </div>
+    
+        </div>
+      
+       
+        <br><button class="btn btn-danger btn-block" (click)="editEmployee()">Edit</button>
+    </form>
+    </div>
+    

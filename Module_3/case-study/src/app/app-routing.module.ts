@@ -1,33 +1,38 @@
-import { CustomerAddComponent } from './customer/customer-add/customer-add.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { FacilityAddComponent } from './facilities/facility-add/facility-add.component';
-import { HomeComponent } from './home/home.component';
 
-import { EmployeeAddComponent } from './employees/employee-add/employee-add.component';
+
+
 import { DetailContractsComponent } from './detail-contracts/detail-contracts.component';
 import { ContractsComponent } from './contracts/contracts.component';
-import { CustomerComponent } from './customer/customer.component';
-import { FacilitiesComponent } from './facilities/facilities.component';
+
+
 import { AppComponent } from './app.component';
-import { EmployeesComponent } from './employees/employees.component';
+
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ContactComponent } from './contact/contact.component';
-import { ContractAddComponent } from './contracts/contract-add/contract-add.component';
+
 
 
 const routes: Routes = [
   
-  {path: "employees", component: EmployeesComponent},
-  {path: "employee-add", component: EmployeeAddComponent},
-  {path: "facilities", component: FacilitiesComponent},
-  {path: "facility-add", component: FacilityAddComponent},
-  {path: "customers", component: CustomerComponent},
-  {path: "customer-add", component: CustomerAddComponent},
-  {path: "contracts", component: ContractsComponent},
-  {path: "contract-add", component: ContractAddComponent},
+  {path: "", loadChildren: './employees/employees.module#EmployeesModule'},
+
+  {path: "", loadChildren: './customer/customer.module#CustomerModule'},
+
+  {path: "", loadChildren: './contracts/contracts.module#ContractsModule'},
+
+  {path: "", loadChildren: './facilities/facilities.module#FacilitiesModule'},  
+  
+  
   {path: "detail-contracts", component: DetailContractsComponent},
+  
   {path: "contacts", component: ContactComponent},
-  {path: "home", component: HomeComponent }
+ 
+  {path: "**", component: PageNotFoundComponent}
+
+
 ];
 
 @NgModule({

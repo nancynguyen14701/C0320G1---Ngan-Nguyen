@@ -1,30 +1,30 @@
 <div class="wrapper mx-2 my-3">
 <h3 class="text-center text-danger">Add Employee Form</h3>
 
-<form class="w-75 mx-auto mt-3">
+<form class="w-75 mx-auto mt-3"  [formGroup]="newEmployeeForm">
     <div class="row">
 
         <div class="form-group col-md-6">
-           Name <input class="form-control">
-           <p *ngIf="false"><small class="text-danger">Please fill in this field</small></p>            
+           Name <input class="form-control" formControlName="name">
+           <p *ngIf="newEmployeeForm.get('name').invalid && newEmployeeForm.get('name').touched"><small class="text-danger">Please fill in this field</small></p>            
         </div>
-
+        
         <div class="form-group col-md-6" >
-            Position <input class="form-control">
-            <p *ngIf="false"><small class="text-danger">Please fill in this field</small></p>
+            Position <input class="form-control" formControlName="position">
+            <p *ngIf="newEmployeeForm.get('position').invalid && newEmployeeForm.get('position').touched"><small class="text-danger">Please fill in this field</small></p>
         </div>       
 
     </div>
     <div class="row">
 
         <div class="form-group col-md-6">
-           Academic level <input class="form-control">
-           <p *ngIf="false"><small class="text-danger">Please fill in this field</small></p>            
+           Academic level <input class="form-control" formControlName="academicLevel">
+           <p *ngIf="newEmployeeForm.get('academicLevel').invalid && newEmployeeForm.get('academicLevel').touched"><small class="text-danger">Please fill in this field</small></p>            
         </div>
 
         <div class="form-group col-md-6" >
-            Department <input class="form-control">
-            <p *ngIf="false"><small class="text-danger">Please fill in this field</small></p>
+            Department <input class="form-control" formControlName="department">
+            <p *ngIf="newEmployeeForm.get('department').invalid && newEmployeeForm.get('department').touched"><small class="text-danger">Please fill in this field</small></p>
         </div>       
 
     </div>
@@ -32,13 +32,14 @@
     <div class="row">        
 
         <div class="form-group col-md-6" >
-            Phone number <input class="form-control">
-            <p *ngIf="false"><small class="text-danger">Please fill in this field</small></p>
+            Phone number <input class="form-control" formControlName="phoneNumber">
+            <p *ngIf="newEmployeeForm.get('phoneNumber').invalid && newEmployeeForm.get('phoneNumber').touched"><small class="text-danger">Please fill in this field</small></p>
         </div>       
 
         <div class="form-group col-6">
-            Email <input class="form-control" type="email">
-            <p *ngIf="false"><small class="text-danger">Please fill in this field</small></p>            
+            Email <input class="form-control" type="email" formControlName="email">
+            <p *ngIf="newEmployeeForm.get('email').errors?.required && newEmployeeForm.get('email').touched"><small class="text-danger">Please fill in this field</small></p> 
+            <p *ngIf="newEmployeeForm.get('email').errors?.email && newEmployeeForm.get('email').touched"><small class="text-danger">Invalid email format!</small></p>           
          </div>
 
     </div>
@@ -46,29 +47,29 @@
     <div class="row">       
 
         <div class="form-group col-md-4" >
-            Salary <input class="form-control">
-            <p *ngIf="false"><small class="text-danger">Please fill in this field</small></p>
+            Salary <input class="form-control" formControlName="salary">
+            <p *ngIf="newEmployeeForm.get('salary').invalid && newEmployeeForm.get('salary').touched"><small class="text-danger">Please fill in this field</small></p>
         </div>       
 
         <div class="form-group col-md-4">
-            Address <input class="form-control" type="text">
-            <p *ngIf="false"><small class="text-danger">Please fill in this field</small></p>            
+            Address <input class="form-control" type="text" formControlName="address">
+            <p *ngIf="newEmployeeForm.get('address').invalid && newEmployeeForm.get('address').touched"><small class="text-danger">Please fill in this field</small></p>            
          </div>
 
          <div class="form-group col-md-4">
             Birthday <mat-form-field appearance="fill">
              <mat-label>Choose a date</mat-label>
-             <input matInput [matDatepicker]="picker">
+             <input [max]="maxDate" matInput [matDatepicker]="picker" formControlName="birthday">
              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
              <mat-datepicker #picker></mat-datepicker>
            </mat-form-field>
            
-            <p *ngIf="false"><small class="text-danger">Please fill in this field</small></p>            
+            <p *ngIf="newEmployeeForm.get('birthday').invalid && newEmployeeForm.get('birthday').touched"><small class="text-danger">Please fill in this field</small></p>            
          </div>
 
     </div>
   
    
-    <br><button class="btn btn-danger btn-block">Submit</button>
+    <br><button [disabled]="newEmployeeForm.invalid" class="btn btn-danger btn-block" (click)="addNewEmployee()">Submit</button>
 </form>
 </div>

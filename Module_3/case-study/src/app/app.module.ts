@@ -1,51 +1,55 @@
+
+
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MaterialModule } from './material/material.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EmployeesComponent } from './employees/employees.component';
+
+import { EmployeeComponent } from './employees/employee.component';
 import { FacilitiesComponent } from './facilities/facilities.component';
 import { CustomerComponent } from './customer/customer.component';
 import { ContractsComponent } from './contracts/contracts.component';
 import { DetailContractsComponent } from './detail-contracts/detail-contracts.component';
-import { EmployeeAddComponent } from './employees/employee-add/employee-add.component';
+
 import { ContactComponent } from './contact/contact.component';
-import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FacilityAddComponent } from './facilities/facility-add/facility-add.component';
-import { CustomerAddComponent } from './customer/customer-add/customer-add.component';
-import { ContractAddComponent } from './contracts/contract-add/contract-add.component';
+import { DeleteConfirmComponent } from './delete-confirm/delete-confirm.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
+import { HttpClientModule } from '@angular/common/http';
 
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    EmployeesComponent,
+    EmployeeComponent,
     FacilitiesComponent,
     CustomerComponent,
     ContractsComponent,
-    DetailContractsComponent,
-    EmployeeAddComponent,
+    DetailContractsComponent,    
     ContactComponent,
-    HomeComponent,
-    FacilityAddComponent,
-    CustomerAddComponent,
-    ContractAddComponent,
-  
+    
+    PageNotFoundComponent,  
 
-   
   
   ],
+  // entryComponents: [DeleteConfirmComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
+    Ng2SearchPipeModule
+  
     
    
   ],
