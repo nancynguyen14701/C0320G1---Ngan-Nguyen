@@ -1,10 +1,12 @@
+import { CustomValidatorsService } from './../../services/custom-validators.service';
 import { Router } from '@angular/router';
 import { EmployeesService } from './../../services/employees.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { DatePipe } from '@angular/common';
+
 import { IEmployee } from 'src/app/interface/IEmployee';
 import { $ } from 'protractor';
+import { DatePipe } from '@angular/common';
 
 
 @Component({
@@ -19,7 +21,9 @@ export class EmployeeAddComponent implements OnInit {
   constructor( 
     private fb: FormBuilder, 
     private employeesService: EmployeesService,
-    private router: Router) { }
+    private router: Router,
+    private customValidatorsService : CustomValidatorsService
+    ) { }
 
   ngOnInit() {
     this.newEmployeeForm = this.fb.group({
@@ -31,7 +35,7 @@ export class EmployeeAddComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       salary: ['', [Validators.required]],
       address: ['', [Validators.required]],
-      birthday: ['', [Validators.required]],
+      birthday: ['', [Validators.required, this.customValidatorsService.ageValidator]],
     })
     
   }
@@ -43,13 +47,11 @@ export class EmployeeAddComponent implements OnInit {
   addNewEmployee(){
     
     let employee = this.newEmployeeForm.value as IEmployee
-    let datePipe = new DatePipe('en-Us')
-     employee.birthday = datePipe.transform(employee.birthday, 'dd/MM/yyyy')
-
+    // let datePipe = new DatePipe('en-Us')
+    // employee.birthday = datePipe.transform(employee.birthday, 'dd/MM/yyyy')    
     this.employeesService.addNewEmployee(employee).subscribe(
       data => {
         this.router.navigateByUrl('employees');
-        
       }
     )
       

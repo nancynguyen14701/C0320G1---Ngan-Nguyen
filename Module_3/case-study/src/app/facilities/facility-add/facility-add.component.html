@@ -1,61 +1,60 @@
 <div class="wrapper mx-5 my-5">
-    <h3 class="text-center text-danger mt-3">Add Facility Form</h3>
+    <h3 class="text-center text-danger mt-3"  >Add Facility Form</h3>
     
-    <form class="w-75 mx-auto mt-5">
+    <form class="w-75 mx-auto mt-5" [formGroup]="addFacilityForm">
         <div class="row">
     
-            <div class="form-group col-md-4">
-                ID <input class="form-control">
-               <p *ngIf="false"><small class="text-danger">Please fill in this field</small></p>            
+            <div class="form-group col-md-6">
+                ID <input class="form-control" formControlName="id">
+                <p *ngIf="addFacilityForm.get('id').invalid && addFacilityForm.get('id').touched"><small class="text-danger">Please fill in this field</small></p>           
             </div>
+            
     
-            <div class="form-group col-md-4" >
-                Code <input class="form-control">
-                <p *ngIf="false"><small class="text-danger">Please fill in this field</small></p>
+            <div class="form-group col-md-6"  >
+                Code <input class="form-control" formControlName="code">
+                <p *ngIf="addFacilityForm.get('code').invalid && addFacilityForm.get('code').touched"><small class="text-danger">Please fill in this field</small></p>
             </div>      
             
-            <div class="form-group col-md-4" >
-                Price <input class="form-control">
-                <p *ngIf="false"><small class="text-danger">Please fill in this field</small></p>
-            </div>     
+              
     
         </div>
         <div class="row">
     
-            <div class="form-group col-md-6">
-               Area <input class="form-control">
-               <p *ngIf="false"><small class="text-danger">Please fill in this field</small></p>            
-            </div>
-    
             <div class="form-group col-md-6" >
-                Floor <input class="form-control">
-                <p *ngIf="false"><small class="text-danger">Please fill in this field</small></p>
-            </div>       
+               Area <input class="form-control" formControlName="area">
+               <p *ngIf="addFacilityForm.get('area').invalid && addFacilityForm.get('area').touched"><small class="text-danger">Please fill in this field</small></p>            
+            </div>
+            
+            <div class="form-group col-md-6"  >
+                Price <input class="form-control" formControlName="price">
+                <p *ngIf="addFacilityForm.get('price').invalid && addFacilityForm.get('price').touched"><small class="text-danger">Please fill in this field</small></p>
+            </div>   
+           
     
             
         </div>
     
         <div class="row">        
     
-            <div class="form-group col-md-6" >
-                Max capacity <input class="form-control">
-                <p *ngIf="false"><small class="text-danger">Please fill in this field</small></p>
+            <div class="form-group col-md-6">
+                Max capacity <input class="form-control"  formControlName="maxCapacity">
+                <p *ngIf="addFacilityForm.get('maxCapacity').invalid && addFacilityForm.get('maxCapacity').touched"><small class="text-danger">Please fill in this field</small></p>
             </div>        
     
             <div class="form-group col-6">
-                Facility type <select class="form-control" name="facility">
+                Facility type <select class="form-control" name="facility" formControlName="facilityType">
                     <option value="Villa">Villa</option>
                     <option value="House">House</option>
                     <option value="Room">Room</option>
                 </select>
 
-                <p *ngIf="false"><small class="text-danger">Please fill in this field</small></p>            
+                <p *ngIf="addFacilityForm.get('facilityType').invalid && addFacilityForm.get('facilityType').touched"><small class="text-danger">Please fill in this field</small></p>   
              </div>
     
         </div>           
       
        
-        <br><button class="btn btn-danger btn-block">Submit</button>
+        <br><button class="btn btn-danger btn-block" (click)="addNewFacility()">Submit</button>
     </form>
     </div>
     

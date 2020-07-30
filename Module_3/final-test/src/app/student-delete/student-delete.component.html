@@ -1,0 +1,7 @@
+
+<h2 mat-dialog-title>Delete form</h2>
+<mat-dialog-content>Are you sure to delete <b>{{studentName}}</b>?</mat-dialog-content>
+<mat-dialog-actions class="d-flex justify-content-around mt-1">
+    <button (click)=onYesClick() mat-raised-button color="warn">Yes</button>
+    <button  mat-raised-button mat-dialog-close="action" color="primary">No</button>
+</mat-dialog-actions>

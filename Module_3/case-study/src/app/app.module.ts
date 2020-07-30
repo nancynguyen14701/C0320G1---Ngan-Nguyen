@@ -12,7 +12,7 @@ import { EmployeeComponent } from './employees/employee.component';
 import { FacilitiesComponent } from './facilities/facilities.component';
 import { CustomerComponent } from './customer/customer.component';
 import { ContractsComponent } from './contracts/contracts.component';
-import { DetailContractsComponent } from './detail-contracts/detail-contracts.component';
+
 
 import { ContactComponent } from './contact/contact.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -32,7 +32,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     FacilitiesComponent,
     CustomerComponent,
     ContractsComponent,
-    DetailContractsComponent,    
+       
     ContactComponent,
     
     PageNotFoundComponent,  

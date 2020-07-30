@@ -3,7 +3,7 @@
     <div class="row justify-content-between ">
         <h2 class="text-dark">Facilities List</h2>
         <div class="d-flex">
-            <input class="rounded mx-1 border border-primary" type="text" style="width: 400px;" placeholder="Enter facilities' name ">        
+            <input class="rounded mx-1 border border-primary" type="text" style="width: 400px;" placeholder="Enter facilities' name " [(ngModel)]="term">        
            <button class="btn btn-outline-primary">search</button>
         </div>    
     </div>
@@ -14,61 +14,32 @@
         <table class="table table-bordered">
             <thead class="thead-dark text-center">
               <tr>
-                <th>ID</th>
-                <th>Code</th>
-                <th>Price</th>
-                <th>Area</th>
-                <th>Floor</th>
+                <th>STT</th>
+                <th>Code</th>               
+                <th>Area</th>                
                 <th>Max Capacity</th>
+                <th>Price</th>
                 <th>Facility Type</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              <tr class="text-center">
-                <td>1</td>
-                <td>Doe</td>
-                <td>200</td>
-                <td>1000</td>
-                <td>2</td>
-                <td>20</td>
-                <td>ákf</td>
+              <tr *ngFor = "let facility of facilities|filter: term|paginate: { itemsPerPage: 5, currentPage: p }" class="text-center">
+                <td>{{facilities.indexOf(facility)+1}}</td>
+                <td>{{facility.code}}</td>
+                <td>{{facility.area}}</td>
+                <td>{{facility.maxCapacity}}</td>
+                <td>{{facility.price}}</td>
+                <td>{{facility.facilityType}}</td>               
                 <td>
-                  <a class="mx-4" href="#"><mat-icon color = "primary">visibility</mat-icon></a>              
-              <a href="#" class="mr-4"><mat-icon color = "accent">settings</mat-icon></a>
-              <a href="#" class="mr-4"><mat-icon color = "warn">delete</mat-icon></a>
+                            
+            <a [routerLink] = "['/facilities/facility-edit/'+ facility.id]" class="ml-2"><mat-icon color = "accent">settings</mat-icon></a>
+              <a (click) = "openDialog(facility)" class="mr-2"><mat-icon color = "primary">delete</mat-icon></a>
                 </td>
-              </tr>
-              <tr class="text-center">
-                <td>2</td>
-                <td>Mary</td>
-                <td>200</td>
-                <td>1000</td>
-                <td>2</td>
-                <td>20</td>
-                <td>ákf</td>
-                <td>
-                  <a class="mx-4" href="#"><mat-icon color = "primary">visibility</mat-icon></a>              
-              <a href="#" class="mr-4"><mat-icon color = "accent">settings</mat-icon></a>
-              <a href="#" class="mr-4"><mat-icon color = "warn">delete</mat-icon></a>
-                </td>
-              </tr>
-              <tr class="text-center">
-                <td>3</td>
-                <td>Doe</td>
-                <td>200</td>
-                <td>1000</td>
-                <td>2</td>
-                <td>20</td>
-                <td>ákf</td>
-                <td>
-                  <a class="mx-4" href="#"><mat-icon color = "primary">visibility</mat-icon></a>              
-              <a href="#" class="mr-4"><mat-icon color = "accent">settings</mat-icon></a>
-              <a href="#" class="mr-4"><mat-icon color = "warn">delete</mat-icon></a>
-                </td>
-              </tr>
+              </tr>              
             </tbody>
           </table>
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </div>
     
     </div>

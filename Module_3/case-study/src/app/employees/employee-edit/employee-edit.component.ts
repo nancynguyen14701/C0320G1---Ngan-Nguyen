@@ -26,7 +26,7 @@ export class EmployeeEditComponent implements OnInit {
   ngOnInit() {
     this.editEmployeeForm = this.fb.group({
       name: ['', [Validators.required]],
-      position: ['', [Validators.required, Validators.pattern("^NV-[0-9]{4}$")]],
+      position: ['', [Validators.required]],
       academicLevel: ['', [Validators.required]],
       department: ['', [Validators.required]],
       phoneNumber: ['', [Validators.required]],

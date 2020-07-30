@@ -1,7 +1,7 @@
 
 
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IEmployee } from '../interface/IEmployee';
 
@@ -13,6 +13,13 @@ export class EmployeesService {
   private readonly API_URL: string = 'http://localhost:3000/employees';
 
   constructor(private http: HttpClient) { }
+
+  // httpOptions = {
+
+  //   headers: new HttpHeaders ({
+  //     'Content-Type': 'application/json'
+  //   })
+  // }
 
   getAllEmployees(): Observable<IEmployee[]> {
     return this.http.get<IEmployee[]>(this.API_URL);

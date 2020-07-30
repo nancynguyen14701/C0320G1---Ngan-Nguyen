@@ -3,7 +3,7 @@
     <div class="row justify-content-between ">
         <h2 class="text-dark">Customers List</h2>
         <div class="d-flex">
-            <input class="rounded mx-1 border border-primary" type="text" style="width: 400px;" placeholder="Enter customer's name ">        
+            <input class="rounded mx-1 border border-primary" type="text" style="width: 400px;" placeholder="Enter customer's name " [(ngModel)]="term">        
            <button class="btn btn-outline-primary">search</button>
         </div>    
     </div>
@@ -14,50 +14,36 @@
       <table class="table table-bordered">
           <thead class="thead-dark text-center">
             <tr>
-              <th>ID</th>
+              <th>STT</th>
               <th>Name</th>
-              <th>Position</th>            
-              <th>Department</th>            
-              <th>Salary</th>
+              <th>Birthday</th>
+                      
+             
               <th>Phone number</th>
-              <th>Email</th>         
+                   
+              <th>Address</th>         
               <th>Action</th>
               
             </tr>
           </thead>
           <tbody>
-            <tr class="text-center">
-              <td>1</td>
-              <td>Doe</td>
-              <td>Manager</td>
-              <td>Sales</td>
-              <td>3000</td>
-              <td>0988099890</td>
-              <td>dkd@gm.com</td>
+            <tr class="text-center" *ngFor = "let customer of customers |filter: term | paginate: { itemsPerPage: 5, currentPage: p}">
+              <td>{{customers.indexOf(customer)+1}}</td>              
+              <td>{{customer.name}}</td>
+              <td>{{customer.birthday | date: "dd/MM/yyyy"}}</td>              
+              <td>{{customer.phoneNumber}}</td>            
+             
+              <td>{{customer.address}}</td>
               <td>
-                <a class="mx-4" href="#"><mat-icon color = "primary">visibility</mat-icon></a>              
-                  <a href="#" class="mr-4"><mat-icon color = "accent">settings</mat-icon></a>
-                  <a href="#" class="mr-4"><mat-icon color = "warn">delete</mat-icon></a>
+                <a class="mx-4"(click)= openDetailDialog(customer)><mat-icon color = "primary">visibility</mat-icon></a>              
+                <a [routerLink] = "['/customer/customer-edit/'+ customer.id]" class="mr-4"><mat-icon color = "accent">settings</mat-icon></a>
+                <a (click) = "openDialog(customer)" class="mr-4"><mat-icon color = "warn">delete</mat-icon></a>
                   
               </td>
-            </tr>
-            <tr class="text-center">
-              <td>2</td>
-              <td>Marry</td>
-              <td>Receptionist</td>
-              <td>Administrative</td>
-              <td>1000</td>
-              <td>0988099890</td>
-              <td>ggkd@gm.com</td>
-              <td>
-                <a class="mx-4" href="#"><mat-icon color = "primary">visibility</mat-icon></a>              
-                <a href="#" class="mr-4"><mat-icon color = "accent">settings</mat-icon></a>
-                <a href="#" class="mr-4"><mat-icon color = "warn">delete</mat-icon></a>
-              </td>
-            </tr>
             
           </tbody>
         </table>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </div>
     </div>
     

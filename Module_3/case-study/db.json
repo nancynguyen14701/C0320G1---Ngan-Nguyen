@@ -1,7 +1,7 @@
 {
   "employees": [
     {
-      "name": "Mathian Thatcham 123",
+      "name": "Mathian Thatcham",
       "position": "Financial Analyst",
       "academicLevel": "Pedagogical University of Krakow",
       "department": "Support",
@@ -9,11 +9,10 @@
       "email": "mthatcham2@cornell.edu",
       "salary": 90,
       "address": "902 Killdeer Circle",
-      "birthday": "02/12/2001",
+      "birthday": "2001-02-22T17:00:00.000Z",
       "id": 4
     },
     {
-      "id": 5,
       "name": "Alexandre Tolley",
       "position": "Database Administrator III",
       "academicLevel": "University of Aviation and Technology",
@@ -22,10 +21,10 @@
       "email": "atolley3@facebook.com",
       "salary": 14,
       "address": "139 Cody Avenue",
-      "birthday": "28/12/2002"
+      "birthday": "2020-07-14T17:00:00.000Z",
+      "id": 5
     },
     {
-      "id": 6,
       "name": "Lovell Garrioch",
       "position": "Administrative Officer",
       "academicLevel": "University of North Dakota",
@@ -34,7 +33,8 @@
       "email": "lgarrioch4@time.com",
       "salary": 25,
       "address": "67 Lindbergh Way",
-      "birthday": "06/07/2005"
+      "birthday": "2005-06-22T17:00:00.000Z",
+      "id": 6
     },
     {
       "id": 10,
@@ -73,7 +73,6 @@
       "birthday": "11/02/1995"
     },
     {
-      "id": 13,
       "name": "Lynnet Jandourek",
       "position": "Marketing Manager",
       "academicLevel": "Universidade Jean Piaget de Cabo Verde",
@@ -82,7 +81,693 @@
       "email": "ljandourekb@japanpost.jp",
       "salary": 85,
       "address": "4184 Hazelcrest Street",
-      "birthday": "19/01/1992"
+      "birthday": "2020-07-20T17:00:00.000Z",
+      "id": 13
+    }
+  ],
+  "customers": [
+    {
+      "name": "Kaitlyn",
+      "customerType": "Gold",
+      "cardNumber": "6709087483278608058",
+      "phoneNumber": "0901070457",
+      "email": "kransley1@berkeley.edu",
+      "address": "5 Westport Way",
+      "birthday": "2000-11-07T17:00:00.000Z",
+      "id": 2
+    },
+    {
+      "id": 4,
+      "customerfacilityType": "Silver ",
+      "name": "Vasilis",
+      "birthday": "10/22/2019",
+      "cardNumber": "630487554430795742",
+      "phoneNumber": "0916804897",
+      "email": "vfransinelli3@un.org",
+      "address": "70575 Mariners Cove Hill"
+    },
+    {
+      "id": 5,
+      "customerfacilityType": "Silver ",
+      "name": "Rustie",
+      "birthday": "5/1/2020",
+      "cardNumber": "3535071484916779",
+      "phoneNumber": "0912639826",
+      "email": "rhuguenet4@elegantthemes.com",
+      "address": "60147 Redwing Terrace"
+    },
+    {
+      "id": 6,
+      "customerfacilityType": "Member",
+      "name": "Nico",
+      "birthday": "4/3/2020",
+      "cardNumber": "3547714841188568",
+      "phoneNumber": "0915136071",
+      "email": "njorden5@cnn.com",
+      "address": "98271 Anderson Avenue"
+    },
+    {
+      "name": "Fedora",
+      "customerType": "",
+      "cardNumber": "5100143922451923",
+      "phoneNumber": "0911645796",
+      "email": "fwhiles6@ebay.com",
+      "address": "4623 Golf View Terrace",
+      "birthday": "8/6/2019",
+      "id": 7
+    },
+    {
+      "id": 8,
+      "customerfacilityType": "Member",
+      "name": "Wolfy",
+      "birthday": "4/18/2020",
+      "cardNumber": "372301284808864",
+      "phoneNumber": "0914412719",
+      "email": "wbrozsset7@senate.gov",
+      "address": "63058 Kenwood Trail"
+    },
+    {
+      "id": 9,
+      "customerfacilityType": "Diamond",
+      "name": "Celestia",
+      "birthday": "9/1/2019",
+      "cardNumber": "0604862724244943826",
+      "phoneNumber": "0918618832",
+      "email": "cgleasane8@dyndns.org",
+      "address": "0 Lindbergh Avenue"
+    },
+    {
+      "id": 10,
+      "customerfacilityType": "Member",
+      "name": "Demetrius",
+      "birthday": "10/7/2019",
+      "cardNumber": "337941762658259",
+      "phoneNumber": "0902844372",
+      "email": "dbattill9@senate.gov",
+      "address": "9826 Debra Street"
+    },
+    {
+      "id": 11,
+      "customerfacilityType": "Member",
+      "name": "Golda",
+      "birthday": "9/12/2019",
+      "cardNumber": "5020566907892670154",
+      "phoneNumber": "0917159858",
+      "email": "grittmeyera@shutterfly.com",
+      "address": "326 Melrose Parkway"
+    },
+    {
+      "id": 12,
+      "customerfacilityType": "Gold",
+      "name": "Merilee",
+      "birthday": "8/15/2019",
+      "cardNumber": "3537470655739200",
+      "phoneNumber": "0910863827",
+      "email": "mfreiburgerb@loc.gov",
+      "address": "570 Pond Hill"
+    },
+    {
+      "id": 13,
+      "customerfacilityType": "Member",
+      "name": "Earlie",
+      "birthday": "12/22/2019",
+      "cardNumber": "3584418082497688",
+      "phoneNumber": "0905555879",
+      "email": "ereyburnc@naver.com",
+      "address": "4 Glacier Hill Alley"
+    },
+    {
+      "id": 14,
+      "customerfacilityType": "Silver ",
+      "name": "Ebeneser",
+      "birthday": "8/9/2019",
+      "cardNumber": "3583766579306098",
+      "phoneNumber": "0902450363",
+      "email": "erearyd@t-online.de",
+      "address": "3849 Oneill Plaza"
+    },
+    {
+      "id": 15,
+      "customerfacilityType": "Member",
+      "name": "Edik",
+      "birthday": "1/29/2020",
+      "cardNumber": "3567280782446469",
+      "phoneNumber": "0913754501",
+      "email": "ewhottone@mapquest.com",
+      "address": "81 Elmside Court"
+    },
+    {
+      "id": 16,
+      "customerfacilityType": "Member",
+      "name": "Eliot",
+      "birthday": "11/5/2019",
+      "cardNumber": "4913465167898389",
+      "phoneNumber": "0901254058",
+      "email": "ebovairdf@ucla.edu",
+      "address": "92319 Eastwood Terrace"
+    },
+    {
+      "id": 17,
+      "customerfacilityType": "Diamond ",
+      "name": "Henriette",
+      "birthday": "4/19/2020",
+      "cardNumber": "5107814033319596",
+      "phoneNumber": "0902897989",
+      "email": "hoertzeng@zimbio.com",
+      "address": "4 Thackeray Trail"
+    },
+    {
+      "id": 18,
+      "customerfacilityType": "Silver ",
+      "name": "Tanny",
+      "birthday": "5/23/2020",
+      "cardNumber": "5010121602875800",
+      "phoneNumber": "0913008508",
+      "email": "tstodith@t.co",
+      "address": "2529 Farragut Road"
+    },
+    {
+      "id": 19,
+      "customerfacilityType": "Silver ",
+      "name": "Tull",
+      "birthday": "5/18/2020",
+      "cardNumber": "5002353186849352",
+      "phoneNumber": "0917746007",
+      "email": "tpricheti@examiner.com",
+      "address": "2964 Colorado Avenue"
+    },
+    {
+      "id": 20,
+      "customerfacilityType": "Member",
+      "name": "Steffie",
+      "birthday": "5/11/2020",
+      "cardNumber": "3547906599970771",
+      "phoneNumber": "0907552115",
+      "email": "sbrookingj@dedecms.com",
+      "address": "9349 Sutteridge Avenue"
+    },
+    {
+      "id": 21,
+      "customerfacilityType": "Member",
+      "name": "Daphna",
+      "birthday": "10/29/2019",
+      "cardNumber": "5002352518516366",
+      "phoneNumber": "0913790454",
+      "email": "divaink@china.com.cn",
+      "address": "6 Manley Court"
+    },
+    {
+      "id": 22,
+      "customerfacilityType": "Member",
+      "name": "Alberto",
+      "birthday": "7/11/2020",
+      "cardNumber": "633340760094930324",
+      "phoneNumber": "0919126890",
+      "email": "aetockl@tinypic.com",
+      "address": "24038 Summerview Street"
+    },
+    {
+      "id": 23,
+      "customerfacilityType": "Member",
+      "name": "Darcee",
+      "birthday": "7/29/2019",
+      "cardNumber": "3565123938391092",
+      "phoneNumber": "0909622806",
+      "email": "dpenniallm@ucsd.edu",
+      "address": "17 American Ash Parkway"
+    },
+    {
+      "id": 24,
+      "customerfacilityType": "Silver ",
+      "name": "Jarret",
+      "birthday": "7/4/2020",
+      "cardNumber": "3585082291723380",
+      "phoneNumber": "0903557576",
+      "email": "jvenourn@disqus.com",
+      "address": "1535 Monument Street"
+    },
+    {
+      "id": 25,
+      "customerfacilityType": "Gold ",
+      "name": "Othelia",
+      "birthday": "10/31/2019",
+      "cardNumber": "3585369165219276",
+      "phoneNumber": "0909490326",
+      "email": "ogrzesiewiczo@wix.com",
+      "address": "81331 Helena Park"
+    },
+    {
+      "id": 26,
+      "customerfacilityType": "Member",
+      "name": "Burt",
+      "birthday": "9/3/2019",
+      "cardNumber": "67620442572140583",
+      "phoneNumber": "0913365614",
+      "email": "bdelortp@github.io",
+      "address": "1339 Schlimgen Plaza"
+    },
+    {
+      "id": 27,
+      "customerfacilityType": "Diamond ",
+      "name": "Lombard",
+      "birthday": "5/27/2020",
+      "cardNumber": "3569293866434127",
+      "phoneNumber": "0919096378",
+      "email": "lleviq@desdev.cn",
+      "address": "507 Kipling Terrace"
+    },
+    {
+      "id": 28,
+      "customerfacilityType": "Diamond ",
+      "name": "Sydel",
+      "birthday": "4/25/2020",
+      "cardNumber": "3549141035572134",
+      "phoneNumber": "0902669077",
+      "email": "sjosephyr@state.gov",
+      "address": "9 Muir Road"
+    },
+    {
+      "name": "Joyce",
+      "customerType": "",
+      "cardNumber": "3580822967845149",
+      "phoneNumber": "0918102418",
+      "email": "jhayballs@flavors.me",
+      "address": "19727 Stephen Terrace",
+      "birthday": "12/6/2019",
+      "id": 29
+    }
+  ],
+  "facilities": [
+    {
+      "id": 4,
+      "code": "SV7728",
+      "area": 968,
+      "price": 497,
+      "maxCapacity": 23,
+      "facilityType": "House"
+    },
+    {
+      "id": 5,
+      "code": "SV8703",
+      "area": 540,
+      "maxCapacity": 25,
+      "price": 239,
+      "facilityType": "Room"
+    },
+    {
+      "id": 6,
+      "code": "SV8877",
+      "area": 148,
+      "maxCapacity": 19,
+      "price": 388,
+      "facilityType": "Villa"
+    },
+    {
+      "id": 7,
+      "code": "SV8842",
+      "area": 585,
+      "maxCapacity": 12,
+      "price": 499,
+      "facilityType": "Room"
+    },
+    {
+      "id": 8,
+      "code": "SV4867",
+      "area": 808,
+      "maxCapacity": 38,
+      "price": 260,
+      "facilityType": "House"
+    },
+    {
+      "id": 9,
+      "code": "SV2569",
+      "area": 532,
+      "maxCapacity": 12,
+      "price": 460,
+      "facilityType": "Room"
+    },
+    {
+      "id": 10,
+      "code": "SV5631",
+      "area": 441,
+      "maxCapacity": 30,
+      "price": 535,
+      "facilityType": "Room"
+    },
+    {
+      "id": 11,
+      "code": "SV5037",
+      "area": 350,
+      "maxCapacity": 43,
+      "price": 430,
+      "facilityType": "Room"
+    },
+    {
+      "id": 12,
+      "code": "SV2950",
+      "area": 400,
+      "maxCapacity": 14,
+      "price": 569,
+      "facilityType": "Villa"
+    },
+    {
+      "id": 13,
+      "code": "SV0002",
+      "area": 142,
+      "maxCapacity": 36,
+      "price": 202,
+      "facilityType": "Room"
+    },
+    {
+      "id": 14,
+      "code": "SV4186",
+      "area": 856,
+      "maxCapacity": 47,
+      "price": 128,
+      "facilityType": "Villa"
+    },
+    {
+      "id": 15,
+      "code": "SV6009",
+      "area": 384,
+      "maxCapacity": 48,
+      "price": 114,
+      "facilityType": "Villa"
+    },
+    {
+      "id": 16,
+      "code": "SV8788",
+      "area": 384,
+      "maxCapacity": 29,
+      "price": 444,
+      "facilityType": "Villa"
+    },
+    {
+      "id": 17,
+      "code": "SV3048",
+      "area": 663,
+      "maxCapacity": 24,
+      "price": 404,
+      "facilityType": "House"
+    },
+    {
+      "id": 18,
+      "code": "SV2147",
+      "area": 900,
+      "maxCapacity": 37,
+      "price": 417,
+      "facilityType": "Villa"
+    },
+    {
+      "id": 19,
+      "code": "SV8478",
+      "area": 675,
+      "maxCapacity": 31,
+      "price": 308,
+      "facilityType": "Room"
+    },
+    {
+      "id": 20,
+      "code": "SV7240",
+      "area": 863,
+      "maxCapacity": 26,
+      "price": 310,
+      "facilityType": "Villa"
+    },
+    {
+      "id": 21,
+      "code": "SV2968",
+      "area": 64,
+      "maxCapacity": 35,
+      "price": 492,
+      "facilityType": "House"
+    },
+    {
+      "id": 22,
+      "code": "SV7812",
+      "area": 160,
+      "maxCapacity": 29,
+      "price": 275,
+      "facilityType": "Villa"
+    },
+    {
+      "id": 23,
+      "code": "SV8640",
+      "area": 843,
+      "maxCapacity": 40,
+      "price": 294,
+      "facilityType": "Room"
+    },
+    {
+      "id": 24,
+      "code": "SV3929",
+      "area": 145,
+      "maxCapacity": 38,
+      "price": 172,
+      "facilityType": "Room"
+    },
+    {
+      "id": 25,
+      "code": "SV5697",
+      "area": 376,
+      "maxCapacity": 31,
+      "price": 488,
+      "facilityType": "Room"
+    },
+    {
+      "id": 26,
+      "code": "SV1108",
+      "area": 397,
+      "maxCapacity": 44,
+      "price": 501,
+      "facilityType": "Room"
+    },
+    {
+      "id": 27,
+      "code": "SV2013",
+      "area": 425,
+      "maxCapacity": 50,
+      "price": 245,
+      "facilityType": "Room"
+    },
+    {
+      "id": 28,
+      "code": "SV4909",
+      "area": 927,
+      "maxCapacity": 40,
+      "price": 459,
+      "facilityType": "Room"
+    },
+    {
+      "id": 29,
+      "code": "SV9044",
+      "area": 972,
+      "maxCapacity": 10,
+      "price": 580,
+      "facilityType": "Room"
+    }
+  ],
+  "contracts": [
+    {
+      "id": 2,
+      "startDate": "25/03/2019",
+      "endDate": "31/08/2019",
+      "customer": "Curtis",
+      "employee": "Marika",
+      "deposit": 462,
+      "total": 497
+    },
+    {
+      "id": 3,
+      "startDate": "01/02/2019",
+      "endDate": "02/04/2020",
+      "customer": "Daisi",
+      "employee": "Janaye",
+      "deposit": 292,
+      "total": 238
+    },
+    {
+      "id": 4,
+      "startDate": "20/04/2019",
+      "endDate": "27/04/2020",
+      "customer": "Alice",
+      "employee": "Chickie",
+      "deposit": 212,
+      "total": 408
+    },
+    {
+      "id": 5,
+      "startDate": "07/02/2019",
+      "endDate": "22/06/2020",
+      "customer": "Mortimer",
+      "employee": "Andie",
+      "deposit": 410,
+      "total": 394
+    },
+    {
+      "id": 6,
+      "startDate": "10/10/2018",
+      "endDate": "23/04/2020",
+      "customer": "Westley",
+      "employee": "Rodd",
+      "deposit": 441,
+      "total": 479
+    },
+    {
+      "id": 7,
+      "startDate": "22/02/2019",
+      "endDate": "14/04/2020",
+      "customer": "Kitti",
+      "employee": "Etty",
+      "deposit": 151,
+      "total": 489
+    },
+    {
+      "id": 8,
+      "startDate": "09/07/2019",
+      "endDate": "16/05/2020",
+      "customer": "Ike",
+      "employee": "Kevan",
+      "deposit": 497,
+      "total": 398
+    },
+    {
+      "id": 9,
+      "startDate": "05/11/2018",
+      "endDate": "05/01/2020",
+      "customer": "Helene",
+      "employee": "Berty",
+      "deposit": 200,
+      "total": 490
+    },
+    {
+      "id": 10,
+      "startDate": "18/02/2019",
+      "endDate": "02/03/2020",
+      "customer": "Cherey",
+      "employee": "Hillier",
+      "deposit": 223,
+      "total": 477
+    },
+    {
+      "id": 11,
+      "startDate": "12/09/2018",
+      "endDate": "26/03/2020",
+      "customer": "Walsh",
+      "employee": "Bobby",
+      "deposit": 409,
+      "total": 344
+    },
+    {
+      "id": 12,
+      "startDate": "06/10/2018",
+      "endDate": "16/05/2020",
+      "customer": "Sarah",
+      "employee": "Corilla",
+      "deposit": 431,
+      "total": 304
+    },
+    {
+      "id": 13,
+      "startDate": "07/07/2019",
+      "endDate": "17/09/2019",
+      "customer": "Cletus",
+      "employee": "Jan",
+      "deposit": 226,
+      "total": 327
+    },
+    {
+      "id": 14,
+      "startDate": "20/04/2019",
+      "endDate": "17/06/2020",
+      "customer": "Iggie",
+      "employee": "Selene",
+      "deposit": 498,
+      "total": 304
+    },
+    {
+      "id": 15,
+      "startDate": "25/07/2018",
+      "endDate": "29/02/2020",
+      "customer": "Dinny",
+      "employee": "Tim",
+      "deposit": 151,
+      "total": 363
+    },
+    {
+      "id": 16,
+      "startDate": "30/06/2019",
+      "endDate": "01/07/2020",
+      "customer": "Doe",
+      "employee": "Phebe",
+      "deposit": 398,
+      "total": 244
+    },
+    {
+      "id": 17,
+      "startDate": "13/07/2019",
+      "endDate": "14/11/2019",
+      "customer": "Myer",
+      "employee": "Myra",
+      "deposit": 333,
+      "total": 163
+    },
+    {
+      "id": 18,
+      "startDate": "28/07/2018",
+      "endDate": "21/07/2020",
+      "customer": "Dillon",
+      "employee": "Ring",
+      "deposit": 322,
+      "total": 251
+    },
+    {
+      "id": 19,
+      "startDate": "12/07/2019",
+      "endDate": "03/02/2020",
+      "customer": "Hanan",
+      "employee": "Jonathon",
+      "deposit": 416,
+      "total": 241
+    },
+    {
+      "id": 20,
+      "startDate": "15/02/2019",
+      "endDate": "25/12/2019",
+      "customer": "Sadie",
+      "employee": "Natka",
+      "deposit": 271,
+      "total": 440
+    },
+    {
+      "startDate": "2020-07-09",
+      "endDate": "2020-07-31",
+      "deposit": "1200",
+      "total": 13200,
+      "facilityType": "Villa",
+      "customer": "15",
+      "employee": "5",
+      "id": 21
+    },
+    {
+      "startDate": "2020-07-03",
+      "endDate": "2020-07-10",
+      "deposit": "232",
+      "total": 2800,
+      "facilityType": "House",
+      "customer": "8",
+      "employee": "6",
+      "id": 22
+    },
+    {
+      "startDate": "2020-07-10",
+      "endDate": "2020-07-28",
+      "deposit": "334",
+      "total": 10800,
+      "facilityType": "Villa",
+      "customer": "Tanny",
+      "employee": "Lovell Garrioch",
+      "id": 23
     }
   ]
 }

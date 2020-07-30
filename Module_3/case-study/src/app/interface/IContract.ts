@@ -1,11 +1,14 @@
+import { IFacility } from './IFacility';
+import { ICustomer } from './ICustomer';
+import { IEmployee } from './IEmployee';
 export interface IContract{
-    id: string;
-    employeeID: number;
-    customerID: number;
-    facilityID: number;
-    startDate: Date;
-    endDate: Date;
+    id: string;   
+    startDate: string;   
+    endDate: string;
+    customer: string;
+    employee:string;
     deposit: number;
     total: number;
+
 
 }

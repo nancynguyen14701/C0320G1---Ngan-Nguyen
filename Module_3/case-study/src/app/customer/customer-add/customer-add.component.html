@@ -2,75 +2,69 @@
 <div class="wrapper mx-2 my-3">
     <h3 class="text-center text-danger">Add Customer Form</h3>
     
-    <form class="w-75 mx-auto mt-3">
+    <form class="w-75 mx-auto mt-3" [formGroup]="addCustomerForm">
         <div class="row">
     
             <div class="form-group col-md-6">
-               Name <input class="form-control">
-               <p *ngIf="false"><small class="text-danger">Please fill in this field</small></p>            
+               Name <input class="form-control" formControlName="name">
+               <p *ngIf="addCustomerForm.get('name').invalid && addCustomerForm.get('name').touched"><small class="text-danger">Please fill in this field</small></p>            
             </div>
     
             <div class="form-group col-md-6" >
-                Position <input class="form-control">
-                <p *ngIf="false"><small class="text-danger">Please fill in this field</small></p>
+                Customer Type <select class="form-control" formControlName="customerType">
+                    <option name="customerType" disabled >Select customer type</option>
+                    <option name= "customerType" value="Member">Member</option>
+                    <option name= "customerType" value="Silver">Silver</option>
+                    <option name= "customerType" value="Gold">Gold</option>
+                    <option name= "customerType" value="Platinum">Platinum</option>
+                    <option name= "customerType" value="Diamond">Diamond</option>
+                </select>
+                <p *ngIf="addCustomerForm.get('customerType').invalid && addCustomerForm.get('customerType').touched"><small class="text-danger">Please fill in this field</small></p>
             </div>       
     
         </div>
         <div class="row">
     
             <div class="form-group col-md-6">
-               Academic level <input class="form-control">
-               <p *ngIf="false"><small class="text-danger">Please fill in this field</small></p>            
+               Card Number <input class="form-control" formControlName="cardNumber">
+               <p *ngIf="addCustomerForm.get('cardNumber').invalid && addCustomerForm.get('cardNumber').touched"><small class="text-danger">Please fill in this field</small></p>           
             </div>
     
             <div class="form-group col-md-6" >
-                Department <input class="form-control">
-                <p *ngIf="false"><small class="text-danger">Please fill in this field</small></p>
+                Phone Number <input class="form-control" formControlName="phoneNumber">
+                <p *ngIf="addCustomerForm.get('phoneNumber').invalid && addCustomerForm.get('phoneNumber').touched"><small class="text-danger">Please fill in this field</small></p>
             </div>       
     
         </div>
     
         <div class="row">        
     
-            <div class="form-group col-md-6" >
-                Phone number <input class="form-control">
-                <p *ngIf="false"><small class="text-danger">Please fill in this field</small></p>
-            </div>       
-    
-            <div class="form-group col-6">
-                Email <input class="form-control" type="email">
-                <p *ngIf="false"><small class="text-danger">Please fill in this field</small></p>            
-             </div>
-    
-        </div>
-    
-        <div class="row">       
-    
             <div class="form-group col-md-4" >
-                Salary <input class="form-control">
-                <p *ngIf="false"><small class="text-danger">Please fill in this field</small></p>
+               Email <input class="form-control" formControlName="email">
+               <p *ngIf="addCustomerForm.get('email').invalid && addCustomerForm.get('email').touched"><small class="text-danger">Please fill in this field</small></p>
             </div>       
     
-            <div class="form-group col-md-4">
-                Address <input class="form-control" type="text">
-                <p *ngIf="false"><small class="text-danger">Please fill in this field</small></p>            
+            <div class="form-group col-4">
+                Address <input class="form-control" type="email" formControlName="address">
+                <p *ngIf="addCustomerForm.get('address').invalid && addCustomerForm.get('address').touched"><small class="text-danger">Please fill in this field</small></p>            
              </div>
-    
+
              <div class="form-group col-md-4">
                 Birthday <mat-form-field appearance="fill">
                  <mat-label>Choose a date</mat-label>
-                 <input matInput [matDatepicker]="picker">
+                 <input matInput [matDatepicker]="picker" formControlName="birthday">
                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                  <mat-datepicker #picker></mat-datepicker>
                </mat-form-field>
                
-                <p *ngIf="false"><small class="text-danger">Please fill in this field</small></p>            
+               <p *ngIf="addCustomerForm.get('birthday').errors?.required && addCustomerForm.get('birthday').touched"><small class="text-danger">Please fill in this field</small></p>  
+               <p *ngIf="addCustomerForm.get('birthday').errors?.age && addCustomerForm.get('birthday').touched"><small class="text-danger">Under 18 years old!</small></p>              
              </div>
     
-        </div>
-      
+        </div>  
        
-        <br><button class="btn btn-danger btn-block">Submit</button>
+       
+        <br><button class="btn btn-danger btn-block" (click) ="addNewCustomer() ">Submit</button>
     </form>
     </div>
     

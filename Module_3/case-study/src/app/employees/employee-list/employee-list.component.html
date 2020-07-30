@@ -15,12 +15,11 @@
         <table class="table table-bordered">
             <thead class="thead-dark text-center">
               <tr>
-                <th>ID</th>
+                <th>STT</th>                
                 <th>Name</th>
-                <th>Position</th>         
+                <th>Position</th>     
                             
-                <th>Department</th>   
-                
+                <th>Department</th>                   
                       
                 <th>Salary</th>
                 
@@ -31,13 +30,12 @@
             </thead>
             <tbody>
               <tr class="text-center" *ngFor = "let employee of employees |filter:term |paginate: { itemsPerPage: 3, currentPage: p }">
-                <td>{{employee.id}}</td>
-                <td>{{employee.name}}</td>
+                <th>{{employees.indexOf(employee) + 1}}</th> 
+                <td>{{employee.name}}</td>              
                 <td>{{employee.position}}</td>                
                 <td>{{employee.department}}</td>             
-                <td>{{employee.salary}}</td>
-               
-                <td>{{employee.birthday}}</td>
+                <td>{{employee.salary}}</td>               
+                <td>{{employee.birthday| date :  'dd-MM-yyyy'}}</td>
                 <td>
                   <a class="mx-4"><mat-icon color = "primary" (click)= openDetailDialog(employee)>visibility</mat-icon></a>              
                     <a [routerLink]= "['/employees/employee-edit/' + employee.id]" class="mr-4"><mat-icon color = "accent">settings</mat-icon></a>

@@ -63,8 +63,10 @@
              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
              <mat-datepicker #picker></mat-datepicker>
            </mat-form-field>
+          
            
-            <p *ngIf="newEmployeeForm.get('birthday').invalid && newEmployeeForm.get('birthday').touched"><small class="text-danger">Please fill in this field</small></p>            
+            <p *ngIf="newEmployeeForm.get('birthday').errors?.age && newEmployeeForm.get('birthday').touched"><small class="text-danger">Under 18 years old</small></p> 
+            <p *ngIf="newEmployeeForm.get('birthday').errors?.required && newEmployeeForm.get('birthday').touched"><small class="text-danger">Please fill in this field</small></p>           
          </div>
 
     </div>

@@ -1,0 +1,77 @@
+<div class="wrapper mt-5">
+    <h3 class="text-center text-danger">Edit Student Form</h3>
+    
+    <form class="w-50 mx-auto mt-3" [formGroup]="editStudentForm">
+        <div class="row">
+    
+            <div class="form-group col-md-6">
+               Student code <input class="form-control" formControlName="id" readonly>     
+               <p *ngIf="editStudentForm.get('id').invalid && editStudentForm.get('id').touched"><small class="text-danger">Please fill in this field</small></p>                     
+            </div>
+
+            <div class="form-group col-md-6">
+               Name <input class="form-control" formControlName="name">
+                <p *ngIf="editStudentForm.get('name').errors?.required && editStudentForm.get('name').touched"><small class="text-danger">Please fill in this field</small></p>  
+                <p *ngIf="editStudentForm.get('name').errors?.pattern && editStudentForm.get('name').touched"><small class="text-danger">Name cannot contain special characters</small></p>          
+             </div>
+    
+                 
+    
+        </div>
+        <div class="row">
+
+            <div class="form-group col-md-6" >
+                Group <select class="form-control" formControlName="group">
+                    
+                    <option name= "group" value="Group1">Group1</option>                   
+                    <option name= "group" value="Group2">Group2</option>                   
+                    <option name= "group" value="Group3">Group3</option>                   
+                </select>
+                <p *ngIf="editStudentForm.get('group').invalid && editStudentForm.get('group').touched"><small class="text-danger">Please fill in this field</small></p>
+            </div>  
+
+            <div class="form-group col-md-6" >
+                Coach <select class="form-control" formControlName="coach">
+                    
+                    <option name= "coach" value="Maria">Maria</option>                   
+                    <option name= "coach" value="Leona">Leona</option>                   
+                    <option name= "coach" value="Donaa">Dona</option>                   
+                    <option name= "coach" value="Mark">Mark</option>                   
+                    <option name= "coach" value="Josh">Josh</option>                   
+                </select>
+                <p *ngIf="editStudentForm.get('coach').invalid && editStudentForm.get('coach').touched"><small class="text-danger">Please fill in this field</small></p>
+            </div> 
+            
+    
+                 
+    
+        </div>
+    
+        <div class="row">            
+            
+                <div class="form-group col-md-4" >
+                    Topic <input class="form-control" formControlName="topic">
+                      <p *ngIf="editStudentForm.get('topic').invalid && editStudentForm.get('topic').touched"><small class="text-danger">Please fill in this field</small></p>
+                  </div>  
+
+                  <div class="form-group col-md-4" >
+                  Email <input class="form-control" formControlName="email" type="email">
+                    <p *ngIf="editStudentForm.get('email').errors?.required && editStudentForm.get('email').touched"><small class="text-danger">Please fill in this field</small></p>
+                    <p *ngIf="editStudentForm.get('email').errors?.email && editStudentForm.get('email').touched"><small class="text-danger">Invalid email!</small></p>
+                 </div>       
+    
+                <div class="form-group col-md-4" >
+                    Phone <input class="form-control" formControlName="phone">
+                  <p *ngIf="editStudentForm.get('phone').errors?.required && editStudentForm.get('phone').touched"><small class="text-danger">Please fill in this field</small></p>
+                  <p *ngIf="editStudentForm.get('phone').errors?.pattern && editStudentForm.get('phone').touched"><small class="text-danger">Phone number contains 10-12 digits</small></p>
+                 </div>              
+    
+        </div>  
+       
+       <div class="row d-flex justify-content-around">
+        <button  class="btn btn-secondary " (click) ="backHome() ">Back</button>
+        <button class="btn btn-danger " (click) ="editStudent() ">Submit</button>
+        
+        </div>
+    </form>
+    </div>

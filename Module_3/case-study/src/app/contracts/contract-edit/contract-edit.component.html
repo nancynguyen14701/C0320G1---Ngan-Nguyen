@@ -1,0 +1,69 @@
+<div class="wrapper mx-5 my-4">
+    <h3 class="text-center text-danger">Edit Contract Form</h3>
+    
+    <form class="w-75 mx-auto mt-3" [formGroup]="editContractForm">     
+        <div class="row">
+    
+            <div class="form-group col-md-6">
+                Start date <input type="date" class="form-control" formControlName = "startDate" (change)="retrieveData()">                  
+                   <p *ngIf="editContractForm.hasError('date') && editContractForm.get('startDate').touched"><small class="text-danger">Invalid date</small></p> 
+                   <p *ngIf="editContractForm.get('startDate').invalid && editContractForm.get('startDate').touched"><small class="text-danger">Please fill in this field</small></p>          
+            </div>
+    
+            <div class="form-group col-md-6" >
+                End date <input type="date" class="form-control" formControlName = "endDate" (change)="retrieveData()" >
+                <p *ngIf="editContractForm.hasError('date') && editContractForm.get('endDate').touched"><small class="text-danger">Invalid date</small></p>
+                <p *ngIf="editContractForm.get('endDate').invalid && editContractForm.get('endDate').touched"><small class="text-danger">Please fill in this field</small></p>
+            </div>       
+    
+        </div>
+
+        <div class="row">
+    
+            <div class="form-group col-md-6">
+                Deposit <input class="form-control" formControlName = "deposit">
+               <p *ngIf="editContractForm.get('deposit').invalid && editContractForm.get('deposit').touched"><small class="text-danger">Please fill in this field</small></p>            
+            </div>
+    
+            <div class="form-group col-md-6" >
+                Total <input class="form-control" formControlName = "total">
+                <p *ngIf="editContractForm.get('total').invalid && editContractForm.get('total').touched"><small class="text-danger">Please fill in this field</small></p>
+            </div>       
+    
+        </div>
+    
+        <div class="row">        
+    
+            <div class="form-group col-4">
+                Facility type <select class="form-control" formControlName = "facilityType" (change)= "retrieveData()">
+                    <option value="" selected>Select facility type</option>
+                    <option value="Villa">Villa</option>
+                    <option value="House">House</option>
+                    <option value="Room">Room</option>
+                </select>
+                <p *ngIf="editContractForm.get('facilityType').invalid && editContractForm.get('facilityType').touched"><small class="text-danger">Please fill in this field</small></p>           
+             </div>      
+    
+            <div class="form-group col-4">
+                Customer <select class="form-control" formControlName = "customer" >
+                    <option value="" selected> Select customer</option>
+                    <option *ngFor="let customer of customers" [value]="customer.name">{{customer.name}}</option>
+                </select>
+                <p *ngIf="editContractForm.get('customer').invalid && editContractForm.get('customer').touched"><small class="text-danger">Please fill in this field</small></p>           
+             </div>
+
+             <div class="form-group col-4">
+                Employee <select class="form-control" formControlName = "employee" >
+                    <option value="" selected>Select employee</option>
+                    <option *ngFor="let employee of employees" [value]="employee.id">{{employee.name}}</option>
+                </select>
+                <p *ngIf="editContractForm.get('employee').invalid && editContractForm.get('employee').touched"><small class="text-danger">Please fill in this field</small></p>            
+             </div>
+    
+        </div>    
+       
+       
+        <br><button class="btn btn-danger btn-block" (click)="editContract()">Submit</button>
+    </form>
+    </div>
+    

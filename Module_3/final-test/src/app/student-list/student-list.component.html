@@ -1,0 +1,50 @@
+<div class="wrapper px-5 py-3">
+    <div class="row justify-content-between">
+        <h2 class="text-dark">Students List</h2>
+        <div>
+            <input class="rounded mx-1 border border-primary" type="text" style="width: 400px; height: 40px;" placeholder="Search anything..." [(ngModel)]="term">      
+        </div>    
+    </div>
+
+    <div class="row my-2">
+        <button class="btn btn-danger"><a routerLink="/student-add" style="text-decoration: none; color:white">Add new student</a></button>    
+    </div>
+
+    <div class="row mt-4">
+        <table class="table table-bordered">
+            <thead class="thead-dark text-center">
+              <tr>
+                <th>STT</th>
+                <th>Code</th>
+                <th>Name</th>                
+                <th>Group</th>                     
+                <th>Topic</th>         
+                <th>Coach</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Action</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+                <tr class="text-center" *ngFor = "let student of students |filter: term | paginate: { itemsPerPage: 3, currentPage: p}">
+                    <td>{{students.indexOf(student)+1}}</td>              
+                    <td>{{student.id}}</td>
+                    <td>{{student.name}}</td>              
+                    <td>{{student.group}}</td>           
+                   
+                    <td>{{student.topic}}</td>
+                    <td>{{student.coach}}</td>
+                    <td>{{student.email}}</td>
+                    <td>{{student.phone}}</td>
+                    <td>
+                             
+                      <a [routerLink] = "['/student-edit/'+ student.id]" class="mx-2"><mat-icon color = "primary">settings</mat-icon></a>
+                      <a (click) = "openDialog(student)" class="mr-2"><mat-icon color = "warn">delete</mat-icon></a>
+                        
+                    </td>
+            </tbody>
+        </table>
+     	 <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+</div>
